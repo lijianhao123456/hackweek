@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <div v-for="ia in information" :class="div">
+        {{ ia.owner }}
+
+    </div>
     <!-- <input v-model="loginForm.username" />
     <input v-model="loginForm.password" /> -->
     <button @click="goToAbout">adasds</button>
@@ -25,10 +29,11 @@ export default {
       this.$router.push("/About");
     },
     login: function () {
-      console.log(this.loginForm)
-      this.$store.dispatch("login",{
-        loginForm:this.loginForm,
-        router:this.$router});
+      console.log(this.loginForm);
+      this.$store.dispatch("login", {
+        loginForm: this.loginForm,
+        router: this.$router,
+      });
       // axios({
       //   method: "POST",
       //   url: "http://192.168.2.182:8080",
@@ -62,25 +67,20 @@ export default {
     };
   },
   computed: {
-    data() {
+    information() {
       // 获取store里的数据，放在computed中可以实时更新
-      // return this.$store.state.data;
+      return this.$store.state.information;
     },
   },
   created() {
-    // 请求数据
-    axios({
-      data: {},
-      method: "get",
-      baseURL: "http://192.168.50.181:8080",
-      url: "/api/v1/user",
-    }).then((res) => {
-      let _this = this;
-      // 把数据传到vuex里面
-      _this.$store.commit("setData", res.data.data); //res.data.data 为请求返回的数据
-    });
+    this.$store.dispatch("getInfo");
   },
 };
 </script>
 <style scoped>
+.div{
+  background-color: pink;
+  width: 50%;
+  height: 30%;
+}
 </style>

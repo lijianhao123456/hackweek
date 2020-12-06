@@ -10,10 +10,17 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   mode: "history",
   routes:[
+    { path: '/',
+      redirect: '/login' },
     {
-      path: "/",
+      path: "/login",
       name: "Home",
       component: () => import("../views/login.vue")
+    },
+    {
+      path: "/Home",
+      name: "Home",
+      component: () => import("../views/Home.vue")
     },
     {
       path: "/about",
@@ -24,12 +31,17 @@ const router = new VueRouter({
       path: "/register",
       name: "register",
       component: () => import("../views/register.vue")
+    },
+    {
+      path: "/me",
+      name: "me",
+      component: () => import("../views/me.vue")
     }
   ]
 });
 
 // router.beforeEach((to,from,next)=>{
-//   const token = store.state.token ? store.state.token : window.sessionStorage.getItem("token")
+//   // const token = store.state.token ? store.state.token : window.sessionStorage.getItem("token")
 
 //   if(to.path==='/')return next();
 //   const tokenStr = window.sessionStorage.getItem('token')

@@ -1,15 +1,20 @@
 <template>
   <div class="home">
-    <!-- <input v-model="loginForm.username" />
-    <input v-model="loginForm.password" /> -->
+    <login />
+
     <button @click="goToAbout">adasds</button>
     <button @click="login">11111111</button>
+    <button @click="getInfo">1232132131</button>
     <navigation />
+
   </div>
+
+
 </template>
 
 <script>
 // @ is an alias to /src
+import login from "@/components/login.vue";
 import navigation from "@/components/navigation.vue";
 import axios from "axios";
 import Waterfall from "../components/waterfall.vue";
@@ -19,8 +24,12 @@ export default {
   components: {
     navigation,
     Waterfall,
+    login
   },
   methods: {
+    getInfo:function(){
+      this.$store.dispatch("getInfo")
+    },
     goToAbout: function () {
       this.$router.push("/About");
     },
@@ -62,23 +71,10 @@ export default {
     };
   },
   computed: {
-    data() {
+    information() {
       // 获取store里的数据，放在computed中可以实时更新
-      // return this.$store.state.data;
-    },
-  },
-  created() {
-    // 请求数据
-    axios({
-      data: {},
-      method: "get",
-      baseURL: "http://192.168.50.181:8080",
-      url: "/api/v1/user",
-    }).then((res) => {
-      let _this = this;
-      // 把数据传到vuex里面
-      _this.$store.commit("setData", res.data.data); //res.data.data 为请求返回的数据
-    });
+      return this.$store.state.information;
+    },  
   },
 };
 </script>

@@ -12,7 +12,7 @@ axios.interceptors.request.use(
   config => {
     const token = sessionStorage.getItem('token')
     if (token) { // 判断是否存在token，如果存在的话，则每个http header都加上token
-      config.headers.authorization = token  //请求头加上token
+      config.headers.authorization = "Bearer " +token //请求头加上token
     }
     return config
   },
@@ -25,17 +25,16 @@ axios.interceptors.request.use(
 export default new Vuex.Store({
   state: {
     token: window.sessionStorage.getItem('token'),
-    owner: '',
-    details: '',
-    comment: '',
+    information:[
+    ]
   },
   mutations: {
     setToken(state, token) {
       state.token = token
       window.sessionStorage.setItem('token', token)
     },
-    getInfo(state, page) {
-      state
+    getInfo(state, info) {
+      state.information=info
     }
     // updatalogindata(state,logindata){
     //         axios({
@@ -105,22 +104,14 @@ export default new Vuex.Store({
         Toast.fail("连接失败");
       });
     },
-    getInfo(context, value) {
-      console.log(context, value);
-      axios({
-        method: 'post',
-        headers: {
-          'Authorization': 'passport ' + this.$store.data.token,
-        },
-        // baseURL: 'http://192.168.2.182:8080',
-        // url: '/api/v1/user',
-        // baseURL: 'http://192.168.2.182:8080',
-        url: `/api/page{{value}}`,
-      }).then(res => {
-        context.commit('changeData', res.data.token)
+    async getInfo(context, value) {
+      let info = await axios({
+        method: 'get',
+        url: "/figure/scl",
       })
-    },
-
+      console.log(info);
+      context.commit('getInfo', info.data.data )
+      }
   },
 
   // login(context){
