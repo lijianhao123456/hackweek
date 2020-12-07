@@ -1,5 +1,7 @@
 <template>
-    <van-search v-model="value" placeholder="请输入搜索关键词" />
+    <van-search v-model="value" shape="round" placeholder="请输入搜索关键词">
+      
+    </van-search>
     <!-- <van-icon name="search" size="40" /> -->
 </template>
 

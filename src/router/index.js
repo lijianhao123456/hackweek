@@ -15,43 +15,49 @@ const router = new VueRouter({
     {
       path: "/login",
       name: "Home",
-      component: () => import("../views/login.vue")
+      component: () => import("../views/login.vue"),
+      meta: { keepAlive: true }
     },
     {
       path: "/Home",
       name: "Home",
-      component: () => import("../views/Home.vue")
+      component: () => import("../views/Home.vue"),
+      meta: { keepAlive: true }
     },
     {
       path: "/about",
       name: "About",
-      component: () => import("../views/About.vue")
+      component: () => import("../views/About.vue"),
+      meta: { keepAlive: true }
     },
     {
       path: "/register",
       name: "register",
-      component: () => import("../views/register.vue")
+      component: () => import("../views/register.vue"),
+      meta: { keepAlive: true }
     },
     {
       path: "/me",
       name: "me",
-      component: () => import("../views/me.vue")
+      component: () => import("../views/me.vue"),
+      meta: { keepAlive: true }
     },
     {
-      path: "/testtab",
-      name: "test",
-      component: () => import("../views/testtab.vue")
-    }
+      path: "/message",
+      name: "message",
+      component: () => import("../views/message.vue"),
+      meta: { keepAlive: true }
+    },
   ]
 });
 
-// router.beforeEach((to,from,next)=>{
-//   // const token = store.state.token ? store.state.token : window.sessionStorage.getItem("token")
+router.beforeEach((to,from,next)=>{
+  // const token = store.state.token ? store.state.token : window.sessionStorage.getItem("token")
 
-//   if(to.path==='/')return next();
-//   const tokenStr = window.sessionStorage.getItem('token')
-//   if (!tokenStr) return next("./login")
-//   next()
-// })
+  if(to.path==='/login')return next();
+  const tokenStr = window.sessionStorage.getItem('token')
+  if (!tokenStr) return next("/login")
+  next()
+})
 
 export default router;

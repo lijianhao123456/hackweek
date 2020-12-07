@@ -20,10 +20,11 @@ Vue.use(TabbarItem);
 
 export default {
   name: "End",
-  data() {
-    return {
-      active: 0,
-    };
-  },
+  props: ['active'],
+  // data() {
+  //   return {
+  //     active: 0,
+  //   };
+  // },
 };
 </script>
