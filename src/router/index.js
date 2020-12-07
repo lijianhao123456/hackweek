@@ -36,6 +36,11 @@ const router = new VueRouter({
       path: "/me",
       name: "me",
       component: () => import("../views/me.vue")
+    },
+    {
+      path: "/testtab",
+      name: "test",
+      component: () => import("../views/testtab.vue")
     }
   ]
 });

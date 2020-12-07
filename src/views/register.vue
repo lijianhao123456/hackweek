@@ -34,8 +34,8 @@ export default {
   data() {
     return {
       registerForm: {
-        username: "qwer",                                                           //接上数据
-        password: "123",
+        username: "lijianhao",                                                           //接上数据
+        password: "laji",
       },
     };
   },
