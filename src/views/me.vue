@@ -3,6 +3,7 @@
     <!-- <input v-model="loginForm.username" />
     <input v-model="loginForm.password" /> -->
     <button @click="exit">exit</button>
+    <test/>
     <navigation />
   </div>
 </template>
@@ -11,13 +12,13 @@
 // @ is an alias to /src
 import navigation from "@/components/navigation.vue";
 import axios from "axios";
-import Waterfall from "../components/waterfall.vue";
+import Test from '../components/test.vue';
 
 export default {
   name: "Home",
   components: {
     navigation,
-    Waterfall,
+    Test,
   },
   methods: {
     exit:function(){

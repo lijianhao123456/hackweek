@@ -1,16 +1,12 @@
 <template>
-  <!-- <v-app> -->
-    <keep-alive>
-      <transition :name="transitionName">
-        <router-view />
-      </transition>
-    </keep-alive>
-  <!-- </v-app> -->
+    <transition>
+        <router-view/>
+    </transition>
 </template>
 
 <script>
 export default {
-  name: "App",
+ name:Transition,
   data() {
     return {
       transitionName: "",

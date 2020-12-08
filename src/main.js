@@ -2,19 +2,19 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import Vuetify from 'vuetify'
-import vuetify from './plugins/vuetify';
+// import Vuetify from 'vuetify'
+// import vuetify from './plugins/vuetify';
 import './plugins/element.js'
 import 'vant/lib/index.css';
 import './assets/styles/reset.css'
 
 
 Vue.config.productionTip = false
-Vue.use(Vuetify)
+// Vue.use(Vuetify)
 
 new Vue({
   router,
   store,
-  vuetify,
+  // vuetify,
   render: h => h(App)
 }).$mount('#app')

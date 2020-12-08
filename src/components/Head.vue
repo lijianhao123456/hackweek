@@ -1,16 +1,7 @@
 <template>
-    <van-tabs v-model="active">
-        <van-tab title="关注"></van-tab>
+    <van-tabs v-model="active" >
+        <van-tab title="关注" to="/follow"></van-tab>
         <van-tab title="发现"></van-tab>
-        <!-- <van-icon name="search" size="40"/> -->
-        <!-- <van-tab icon="search"> -->
-        <!-- </van-tab> -->
-        
-        <!-- <div> -->
-          <!-- <van-tabbar v-model="active"> -->
-            <!-- <van-tabbar-item icon="search" dot>ye</van-tabbar-item> -->
-          <!-- </van-tabbar> -->
-        <!-- </div> -->
     </van-tabs>
 </template>
 
@@ -27,7 +18,7 @@
         name:'Head',
         data() {
           return {
-            active: 2,
+            active: 1,
           };
         },
     };

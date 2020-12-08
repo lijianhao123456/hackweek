@@ -54,6 +54,10 @@ export default new Vuex.Store({
       { owner: "555", info: "大家都好强", likes: "888" },
       { owner: "4", info: "大家都好强", likes: "777" },
       { owner: "1", info: "大家都好强", likes: "666" },
+    ],
+    search: [
+      { info: "李健豪好菜" },
+      { info: "李健豪好菜" }
     ]
   },
   mutations: {
@@ -76,23 +80,9 @@ export default new Vuex.Store({
     getInfo4(state, info) {
       state.information4 = info
     },
-
-    // updatalogindata(state,logindata){
-    //         axios({
-    //     method:'post',
-    //     url:'',
-    //     dataType:'json',
-    //     data:context.state.form1
-    //   }).then(res => {
-    //     if (res.data.result == '200'){
-    //       localStorage.setItem('data',JSON.stringify(res.data));
-    //       let mess
-    //     }
-    //   state.logindata=logindata;
-    // },
-    // updatamessage(state,form1){
-    //   state.form1=form1
-    // }
+    getSearch(state, info) {
+      state.search = info
+    }
   },
   actions: {
     async register(context, value) {
@@ -112,11 +102,11 @@ export default new Vuex.Store({
           Toast.success("注册成功");
           value.router.push("/login")
         } else {
-          Toast.fail(res.msg);
+          Toast.fail(res.data.msg);
         }
       } catch (error) {
         console.log(error);
-        Toast.fail("连接失败")
+        Toast.fail("注册失败")
       }
     },
     async login(context, value) {
@@ -126,58 +116,41 @@ export default new Vuex.Store({
         message: "加载中..."
       });
       console.log(context, value);
-      axios({
+      const res = await axios({
         method: 'post',
-        // baseURL: 'http://192.168.2.182:8080',
-        // url: '/api/v1/user',
         url: '/login',
         data: value.loginForm
-      }).then(res => {
-        if (res.data.status == 200) {
-          console.log("成功-清除加载");
-          context.commit('setToken', res.data.token)
-          Toast.success("登录成功");
-          value.router.push("/Home")
-        } else {
-          Toast.fail(res.msg);
-        }
       })
+      if (res.data.status == 200) {
+        console.log("登录成功");
+        context.commit('setToken', res.data.token)
+        Toast.success("登录成功");
+        value.router.push("/Home")
+      } else {
+        Toast.fail(res.data.msg);
+      }
     },
-    // async getAllInfo(context, value) {
-    //   const info1 = await axios({
-    //     method: 'get',
-    //     url: "/figure/0",
-    //   })
-    //   const info2 = await axios({
-    //     method: 'get',
-    //     url: "/figure/1",
-    //   })
-    //   const info3 = await axios({
-    //     method: 'get',
-    //     url: "/figure/2",
-    //   })
-    //   const info4 = await axios({
-    //     method: 'get',
-    //     url: "/figure/3",
-    //   })
-    //   const info5 = await axios({
-    //     method: 'get',
-    //     url: "/figure/4",
-    //   })
-    //   console.log(info);
-    //   context.commit('getInfo1', info1.data.data)
-    //   context.commit('getInfo2', info2.data.data)
-    //   context.commit('getInfo3', info3.data.data)
-    //   context.commit('getInfo4', info4.data.data)
-    //   context.commit('getInfo5', info5.data.data)
-    // },
     async getInfo(context, value) {
       const res = await axios({
         method: 'get',
         url: `/figure/${value}`,
       })
+      // if (res.data.status == 200) {
+      //   console.log("获取成功");
+      //   Toast.success("获取信息成功");
+      // } else {
+      //   Toast.fail("获取信息失败");
+      // }
       context.commit(`getInfo${value}`, res.data.data)
     },
+    async search(context, value) {
+      const res = await axios({
+        method: 'post',
+        url: '/search',
+        data: value
+      })
+      context.commit("getsearch",res)
+    }
   },
   modules: {
   }

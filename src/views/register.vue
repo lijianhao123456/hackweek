@@ -12,13 +12,11 @@
 // @ is an alias to /src
 import navigation from "@/components/navigation.vue";
 import axios from "axios";
-import Waterfall from "../components/waterfall.vue";
 
 export default {
   name: "Home",
   components: {
     navigation,
-    Waterfall,
   },
   methods: {
     goToAbout: function () {

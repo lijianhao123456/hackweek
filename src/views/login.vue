@@ -5,7 +5,6 @@
     <button @click="goToAbout">adasds</button>
     <button @click="login">11111111</button>
     <button @click="getInfo">1232132131</button>
-    <navigation />
 
   </div>
 
@@ -15,15 +14,10 @@
 <script>
 // @ is an alias to /src
 import login from "@/components/login.vue";
-import navigation from "@/components/navigation.vue";
 import axios from "axios";
-import Waterfall from "../components/waterfall.vue";
-
 export default {
   name: "Home",
   components: {
-    navigation,
-    Waterfall,
     login
   },
   methods: {
