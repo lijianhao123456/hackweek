@@ -47,7 +47,6 @@ const router = new VueRouter({
       component: () => import("../views/detail.vue"),
       meta: { keepAlive: true, index: 5 }
     },
-
     {
       path: "/about",
       name: "About",

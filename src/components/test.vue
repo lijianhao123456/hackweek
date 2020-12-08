@@ -1,5 +1,5 @@
 <template>
-  <el-dropdown @command="handleCommand">
+  <el-dropdown @command="handleCommand" class="dropdown">
     <span class="el-dropdown-link">
       <van-icon name="wap-nav" size="30" />
     </span>
@@ -46,5 +46,11 @@ export default {
 }
 .el-icon-arrow-down {
   font-size: 12px;
+}
+.dropdown{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
 }
 </style>
