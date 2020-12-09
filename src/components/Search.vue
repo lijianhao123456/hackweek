@@ -1,5 +1,11 @@
 <template>
-  <van-search v-model="value" shape="round" @focus="Search" placeholder="请输入搜索关键词">
+  <van-search
+    v-model="value"
+    shape="round"
+    @focus="Search"
+    placeholder="请输入搜索关键词"
+    background="#FF9E9A"
+  >
   </van-search>
   <!-- <van-icon name="search" size="40" /> -->
 </template>
@@ -19,10 +25,10 @@ export default {
       value: "",
     };
   },
-  methods:{
-    Search(){
-      this.$router.push("/searchPage")
-    }
-  }
+  methods: {
+    Search() {
+      this.$router.push("/searchPage");
+    },
+  },
 };
 </script>

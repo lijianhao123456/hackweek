@@ -1,8 +1,8 @@
 <template>
-  <van-tabbar v-model="active" route>
+  <van-tabbar v-model="active" route placeholder="true">
     <van-tabbar-item replace to="/home" icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="search">地图</van-tabbar-item>
-    <van-tabbar-item icon="add" badge=""></van-tabbar-item>
+    <van-tabbar-item icon="add" style="font-size: 30px"></van-tabbar-item>
     <van-tabbar-item replace to="/message" icon="chat-o" dot
       >消息</van-tabbar-item
     >

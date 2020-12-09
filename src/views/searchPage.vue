@@ -18,7 +18,7 @@ import { Search } from 'vant';
 Vue.use(Search);
 Vue.use(Empty);
 export default {
-  name: "Search",
+  name: "searchPage",
   data() {
     return {
       value: "",

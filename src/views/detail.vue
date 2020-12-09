@@ -14,24 +14,23 @@
         </template>
       </van-nav-bar>
     </div>
-    <div>
-      <div class="Mine-categories-swipe">
-        <van-swipe class="my-swipe" :autoplay="9999999999">
-          <van-swipe-item v-for="(image, index) in images" :key="index">
-            <img v-lazy="image" />
-          </van-swipe-item>
-        </van-swipe>
-      </div>
+    <div class="Mine-categories-swipe">
+      <van-swipe class="my-swipe" :autoplay="9999999999">
+        <van-swipe-item v-for="(image, index) in images" :key="index">
+          <img v-lazy="image" />
+        </van-swipe-item>
+      </van-swipe>
     </div>
     <div>
+      <van-image
+      round
+        fit="fill"
+        width="0.5rem"
+        height="0.5rem"
+        src="https://img.yzcdn.cn/vant/cat.jpeg"
+      />
       <div>
-        <van-image
-          round
-          fit="fill"
-          width="2rem"
-          height="2rem"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
-        />
+          
       </div>
     </div>
     <van-share-sheet
@@ -117,9 +116,10 @@ export default {
 </script>
 <style scoped>
 .my-swipe .van-swipe-item {
+  width: 100%;
+  height: 200px;
   color: #fff;
   font-size: 20px;
-  line-height: 150px;
   text-align: center;
   background-color: #39a9ed;
 }
