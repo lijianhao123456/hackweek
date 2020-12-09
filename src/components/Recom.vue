@@ -1,6 +1,12 @@
 <template>
   <div class="Mine-categories-swipe">
-    <van-swipe indicator-color="#F5E0E0" :loop="false" class="my-swipe" :autoplay="3000" height="170">
+    <van-swipe
+      indicator-color="#F5E0E0"
+      :loop="false"
+      class="my-swipe"
+      :autoplay="3000"
+      height="170"
+    >
       <van-swipe-item v-for="(image, index) in images" :key="index">
         <img v-lazy="image" />
       </van-swipe-item>
@@ -45,7 +51,7 @@ export default {
   display: inline-block;
   width: 100%;
   height: 170px;
-  border-radius:5px ;
+  border-radius: 5px;
 }
 .Mine-categories-swipe {
   width: 335px;

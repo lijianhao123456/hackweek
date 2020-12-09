@@ -6,7 +6,7 @@ import { Toast } from "vant";
 Vue.use(Toast);
 Vue.use(Vuex)
 
-axios.defaults.baseURL = 'http://47.103.200.147:8080'
+axios.defaults.baseURL = 'http://192.168.2.182:8080'
 axios.defaults.timeout = 5000;
 axios.interceptors.request.use(
   config => {
@@ -56,8 +56,10 @@ export default new Vuex.Store({
       { owner: "1", info: "大家都好强", likes: "666" },
     ],
     search: [
-      { info: "李健豪好菜" },
-      { info: "李健豪好菜" }
+      // { owner: "666", info: "大家都好强", likes: "999" },
+      // { owner: "555", info: "大家都好强", likes: "888" },
+      // { owner: "4", info: "大家都好强", likes: "777" },
+      // { owner: "1", info: "大家都好强", likes: "666" },
     ]
   },
   mutations: {
@@ -149,7 +151,7 @@ export default new Vuex.Store({
         url: '/search',
         data: value
       })
-      context.commit("getsearch",res)
+      context.commit("getSearch", res.data.data)
     }
   },
   modules: {

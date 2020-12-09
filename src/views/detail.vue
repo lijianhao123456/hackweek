@@ -21,16 +21,31 @@
         </van-swipe-item>
       </van-swipe>
     </div>
-    <div>
-      <van-image
-      round
-        fit="fill"
-        width="0.5rem"
-        height="0.5rem"
-        src="https://img.yzcdn.cn/vant/cat.jpeg"
-      />
+    <div class="container">
+      <div class="description">本店新到</div>
+      <div class="owner">
+        <van-image
+          round
+          fit="fill"
+          width="0.5rem"
+          height="0.5rem"
+          src="https://img.yzcdn.cn/vant/cat.jpeg"
+        />
+        <span class="ownerName"> 李健豪 </span>
+      </div>
+      <div class="likes">
+        <van-icon class="like" name="like-o" />
+        999
+      </div>
+    </div>
+    <div class="num">
+      <span>共77条评论</span>
+    </div>
+    <div class="comment">
+    </div>
+    <div class="add">
       <div>
-          
+        <input>
       </div>
     </div>
     <van-share-sheet
@@ -128,4 +143,55 @@ export default {
   width: 100%;
   height: 200px;
 }
+.container {
+  position: relative;
+  background-color: #f5e0e0;
+  height: 3.5rem;
+  width: 100%;
+  border-radius: 0 0 5px 5px;
+  border-bottom: 1px gray solid;
+}
+.owner {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.3rem;
+  font-size: 0.3rem;
+}
+.ownerName {
+  margin-left: 0.2rem;
+}
+.description {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.3rem;
+  font-size: 0.4rem;
+}
+.likes {
+  font-size: 0.5rem;
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.3rem;
+}
+.num {
+  width: 100%;
+  height: 0.6rem;
+  font-size: 16px;
+  background-color: yellow;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 0.3rem;
+}
+.comment{
+  width: 100%;
+  height: 1rem;
+  background-color: thistle;
+}
+.add{
+  position: fixed;
+  bottom: 0;
+}
+
 </style>
