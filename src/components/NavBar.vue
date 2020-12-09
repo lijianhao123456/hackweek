@@ -14,7 +14,6 @@ Vue.use(NavBar);
 
 export default {
   name: "NavBar",
-  props:[title],
   data() {
     return {
       value: "",

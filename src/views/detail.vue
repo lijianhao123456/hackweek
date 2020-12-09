@@ -3,12 +3,7 @@
     <!-- <input v-model="loginForm.username" />
     <input v-model="loginForm.password" /> -->
     <div style="position: relative">
-      <van-nav-bar
-        title="商品详情"
-        left-text="返回"
-        left-arrow
-        @click-left="onClickLeft"
-      >
+      <van-nav-bar title="商品详情" left-text="返回" left-arrow @click-left="onClickLeft">
         <template #right>
           <i class="el-icon-share" @click="share" style="font-size: 30px"></i>
         </template>
@@ -39,14 +34,34 @@
       </div>
     </div>
     <div class="num">
-      <span>共77条评论</span>
+      <span>共40条评论</span>
     </div>
     <div class="comment">
+      <van-list
+        v-model="loading"
+        :finished="finished"
+        finished-text="没有更多假评论了…"
+        @load="onLoad"
+      >
+        <van-cell
+          icon="location-o"
+          v-for="item in list"
+          :key="item"
+          title="李健豪"
+          value="好好看！"
+        />
+      </van-list>
+      <div style="height: 0.9rem"></div>
     </div>
     <div class="add">
-      <div>
-        <input>
-      </div>
+      <van-search
+        v-model="value"
+        shape="round"
+        background="#FF9E9A"
+        placeholder="说点什么…"
+        left-icon="edit"
+        @search="search"
+      />
     </div>
     <van-share-sheet
       v-model="showShare"
@@ -68,7 +83,16 @@ import { ShareSheet } from "vant";
 import { Toast } from "vant";
 import { Swipe, SwipeItem } from "vant";
 import { Lazyload } from "vant";
+import { Search } from "vant";
+import { Icon } from "vant";
+import { List } from "vant";
+import { Cell, CellGroup } from "vant";
 
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(List);
+Vue.use(Icon);
+Vue.use(Search);
 Vue.use(Lazyload);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
@@ -100,9 +124,34 @@ export default {
       });
       this.showShare = false;
     },
+    onLoad() {
+      // 异步更新数据
+      // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+      setTimeout(() => {
+        for (let i = 0; i < 10; i++) {
+          this.list.push(this.list.length + 1);
+        }
+        // 加载状态结束
+        this.loading = false;
+        // 数据全部加载完成
+        if (this.list.length >= 40) {
+          this.finished = true;
+        }
+      }, 1000);
+    },
+    search() {
+      Toast({
+        message: "不许评论！",
+        icon: "smile",
+      });
+    },
   },
   data() {
     return {
+      value: "",
+      list: [],
+      loading: false,
+      finished: false,
       registerForm: {
         username: "qwer", //接上数据
         password: "123",
@@ -175,7 +224,6 @@ export default {
   bottom: 0.3rem;
 }
 .num {
-  width: 100%;
   height: 0.6rem;
   font-size: 16px;
   background-color: yellow;
@@ -184,14 +232,18 @@ export default {
   align-items: center;
   padding-left: 0.3rem;
 }
-.comment{
+.comment {
   width: 100%;
   height: 1rem;
-  background-color: thistle;
+  height: 1rem;
 }
-.add{
+.add {
+  width: 100%;
+  height: 0.8rem;
   position: fixed;
-  bottom: 0;
+  bottom: 0.3rem;
 }
-
+.input {
+  width: 80%;
+}
 </style>

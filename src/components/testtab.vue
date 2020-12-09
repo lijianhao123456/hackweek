@@ -6,28 +6,33 @@
     animated
     swipeable
     lazy-render
+    line-width="0.54rem"
+    line-height="0.1rem"
+    color="#F5E0E0"
+    title-active-color="#F4A9A9"
+    title-inactive-color="#F4A9A9"
   >
     <van-tab title="时装">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <div class="container">
           <div v-for="value in information0" class="card" @click="goToDetail">
-            <van-image
-              class="image"
-              radius="5"
-              src="https://img.yzcdn.cn/vant/cat.jpeg"
-            >
+            <van-image class="image" radius="5" src="https://img.yzcdn.cn/vant/cat.jpeg">
               <template v-slot:loading>
                 <van-loading type="spinner" size="20" />
               </template>
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon class="like" name="like-o" />
+                <van-icon name="like-o" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
               <div class="likes">
-                <van-icon class="like" name="like-o" />
+                <van-icon
+                  class="like"
+                  size="0.3rem"
+                  name="http://hellosun.net.cn/hackweek/good.svg"
+                />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -38,24 +43,24 @@
     <van-tab title="正装">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <div class="container">
-          <div v-for="value in information1" class="card">
-            <van-image
-              class="image"
-              radius="5"
-              src="https://img.yzcdn.cn/vant/cat.jpeg"
-            >
+          <div v-for="value in information1" class="card" @click="goToDetail">
+            <van-image class="image" radius="5" src="https://img.yzcdn.cn/vant/cat.jpeg">
               <template v-slot:loading>
                 <van-loading type="spinner" size="20" />
               </template>
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon class="like" name="like-o" />
+                <van-icon name="like-o" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
               <div class="likes">
-                <van-icon class="like" name="like-o" />
+                <van-icon
+                  class="like"
+                  size="0.3rem"
+                  name="http://hellosun.net.cn/hackweek/good.svg"
+                />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -66,24 +71,24 @@
     <van-tab title="理发">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <div class="container">
-          <div v-for="value in information2" class="card">
-            <van-image
-              class="image"
-              radius="5"
-              src="https://img.yzcdn.cn/vant/cat.jpeg"
-            >
+          <div v-for="value in information2" class="card" @click="goToDetail">
+            <van-image class="image" radius="5" src="https://img.yzcdn.cn/vant/cat.jpeg">
               <template v-slot:loading>
                 <van-loading type="spinner" size="20" />
               </template>
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon class="like" name="like-o" />
+                <van-icon name="like-o" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
               <div class="likes">
-                <van-icon class="like" name="like-o" />
+                <van-icon
+                  class="like"
+                  size="0.3rem"
+                  name="http://hellosun.net.cn/hackweek/good.svg"
+                />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -94,24 +99,24 @@
     <van-tab title="美甲">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <div class="container">
-          <div v-for="value in information3" class="card">
-            <van-image
-              class="image"
-              radius="5"
-              src="https://img.yzcdn.cn/vant/cat.jpeg"
-            >
+          <div v-for="value in information3" class="card" @click="goToDetail">
+            <van-image class="image" radius="5" src="https://img.yzcdn.cn/vant/cat.jpeg">
               <template v-slot:loading>
                 <van-loading type="spinner" size="20" />
               </template>
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon class="like" name="like-o" />
+                <van-icon name="like-o" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
               <div class="likes">
-                <van-icon class="like" name="like-o" />
+                <van-icon
+                  class="like"
+                  size="0.3rem"
+                  name="http://hellosun.net.cn/hackweek/good.svg"
+                />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -122,24 +127,24 @@
     <van-tab title="修眉">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         <div class="container">
-          <div v-for="value in information4" class="card">
-            <van-image
-              class="image"
-              radius="5"
-              src="https://img.yzcdn.cn/vant/cat.jpeg"
-            >
+          <div v-for="value in information4" class="card" @click="goToDetail">
+            <van-image class="image" radius="5" src="https://img.yzcdn.cn/vant/cat.jpeg">
               <template v-slot:loading>
                 <van-loading type="spinner" size="20" />
               </template>
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon class="like" name="like-o" />
+                <van-icon name="like-o" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
               <div class="likes">
-                <van-icon class="like" name="like-o" />
+                <van-icon
+                  class="like"
+                  size="0.3rem"
+                  name="http://hellosun.net.cn/hackweek/good.svg"
+                />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -159,7 +164,6 @@ import { Image as VanImage } from "vant";
 import { Loading } from "vant";
 
 Vue.use(Loading);
-
 Vue.use(VanImage);
 Vue.use(PullRefresh);
 Vue.use(Icon);

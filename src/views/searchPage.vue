@@ -3,7 +3,7 @@
     <van-search
       v-model="value"
       shape="round"
-      @change="Search"
+      @search="Search"
       placeholder="请输入搜索关键词"
     >
     </van-search>
