@@ -4,7 +4,6 @@
     <input v-model="loginForm.password" /> -->
     <div style="position: relative">
       <van-nav-bar left-text="返回" left-arrow @click-left="onClickLeft" />
-      
       <test />
     </div>
     <div>
@@ -28,7 +27,7 @@ import navigation from "@/components/navigation.vue";
 import Test from "../components/test.vue";
 import Vue from "vue";
 import { NavBar } from "vant";
-import { Image as VanImage } from 'vant';
+import { Image as VanImage } from "vant";
 
 Vue.use(VanImage);
 Vue.use(NavBar);
@@ -41,18 +40,12 @@ export default {
   },
   methods: {
     onClickLeft() {
-      this.$router.back(-1)
+      this.$router.back(-1);
     },
   },
   data() {
-    return {
-      registerForm: {
-        username: "qwer", //接上数据
-        password: "123",
-      },
-    };
+    return {};
   },
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>

@@ -6,6 +6,7 @@ import store from './store'
 // import vuetify from './plugins/vuetify';
 import './plugins/element.js'
 import 'vant/lib/index.css';
+import 'vant/lib/index.less';
 import './assets/styles/reset.css'
 
 
