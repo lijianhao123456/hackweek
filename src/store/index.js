@@ -6,7 +6,8 @@ import { Toast } from "vant";
 Vue.use(Toast);
 Vue.use(Vuex)
 
-axios.defaults.baseURL = 'http://47.103.200.147:8080'
+// axios.defaults.baseURL = 'http://47.103.200.147:8080'
+axios.defaults.baseURL = 'http://192.168.2.180:8080'
 axios.defaults.timeout = 5000;
 axios.interceptors.request.use(
   config => {
@@ -26,16 +27,16 @@ export default new Vuex.Store({
   state: {
     token: window.sessionStorage.getItem('token'),
     information0: [
-      { owner: "3", info: "李健豪好菜", likes: "20" },
-      { owner: "333", info: "李健豪好菜", likes: "20" },
-      { owner: "1", info: "李健豪好菜", likes: "20" },
-      { owner: "1", info: "李健豪好菜", likes: "20" },
+      // { owner: "3", info: "李健豪好菜", likes: "20" },
+      // { owner: "333", info: "李健豪好菜", likes: "20" },
+      // { owner: "1", info: "李健豪好菜", likes: "20" },
+      // { owner: "1", info: "李健豪好菜", likes: "20" },
     ],
     information1: [
-      { owner: "3", info: "刘珞芊好强", likes: "999" },
-      { owner: "333", info: "刘珞芊好强", likes: "888" },
-      { owner: "1", info: "刘珞芊好强", likes: "777" },
-      { owner: "1", info: "刘珞芊好强", likes: "666" },
+      // { owner: "3", info: "刘珞芊好强", likes: "999" },
+      // { owner: "333", info: "刘珞芊好强", likes: "888" },
+      // { owner: "1", info: "刘珞芊好强", likes: "777" },
+      // { owner: "1", info: "刘珞芊好强", likes: "666" },
     ],
     information2: [
       { owner: "666", info: "郭芳泉好强", likes: "999" },
@@ -67,24 +68,24 @@ export default new Vuex.Store({
       state.token = token
       window.sessionStorage.setItem('token', token)
     },
-    // getInfo0(state, info) {
-    //   state.information0 = info
-    // },
-    // getInfo1(state, info) {
-    //   state.information1 = info
-    // },
-    // getInfo2(state, info) {
-    //   state.information2 = info
-    // },
-    // getInfo3(state, info) {
-    //   state.information3 = info
-    // },
-    // getInfo4(state, info) {
-    //   state.information4 = info
-    // },
-    // getSearch(state, info) {
-    //   state.search = info
-    // }
+    getInfo0(state, info) {
+      state.information0 = info
+    },
+    getInfo1(state, info) {
+      state.information1 = info
+    },
+    getInfo2(state, info) {
+      state.information2 = info
+    },
+    getInfo3(state, info) {
+      state.information3 = info
+    },
+    getInfo4(state, info) {
+      state.information4 = info
+    },
+    getSearch(state, info) {
+      state.search = info
+    }
   },
   actions: {
     async register(context, value) {

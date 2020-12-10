@@ -6,29 +6,33 @@
       </div>
       <Test />
     </div>
-    <div class="person">
+    <div class="user">
       <div class="img_box">
-        <el-avatar :size="60" src="https://empty" @error="errorHandler">
-          <img src="https://img.yzcdn.cn/vant/cat.jpeg" />
-        </el-avatar>
-        <h1 style="font-size: 20px">小仙女</h1>
+        <van-image
+          round
+          width="1.2rem"
+          height="1.2rem"
+          src="https://img.yzcdn.cn/vant/cat.jpeg"
+        />
+        <h1 style="font-size: 20px">小山女</h1>
       </div>
       <div class="tabbox_1">
-        <p>获赞</p>
-        <p>关注</p>
-        <p>粉丝</p>
+        <p>获赞0</p>
+        <p>关注0</p>
+        <p>粉丝9</p>
       </div>
     </div>
-    <div>
-      <information />
-    </div>
+    <information />
   </div>
 </template>
 
 <script>
 import information from "../components/information.vue";
-import Test from "../components/Test.vue";
+import Test from "../components/test.vue";
+import Vue from "vue";
+import { Image as VanImage } from "vant";
 
+Vue.use(VanImage);
 export default {
   name: "Me",
   components: {
@@ -57,27 +61,29 @@ export default {
   background-color: white;
   color: #ff9e9a;
 }
-.person {
+.user {
+  position: relative;
   width: 100%;
-  height: 110px;
-  display: flex;
+  height: 4rem;
+  background-color: grey;
+  /* background-image: url(../../assets/xiaojiayuan.png); */
 }
 .img_box {
-  width: 30%;
-  height: 90px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: flex-end;
+  position: absolute;
+  left: 0.7rem;
+  bottom: 0.2rem;
 }
 .tabbox_1 {
-  width: 70%;
+  width: 60%;
   height: 25px;
   color: #ff9e9a;
   display: flex;
   align-self: flex-end;
   justify-content: space-around;
+  font-size: 0.3rem;
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.2rem;
 }
 .arrow {
   position: absolute;

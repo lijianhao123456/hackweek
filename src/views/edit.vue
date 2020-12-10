@@ -20,12 +20,12 @@
       <span> 个人信息 </span>
     </div>
     <div class="form">
-      <van-form @submit="onSubmit">
+      <van-form @submit="onSubmit" validate-trigger = "onSubmit">
         <van-field
           v-model="username"
           name="用户名"
           label="用户名"
-          placeholder="用户名"
+          placeholder="请输入用户名"
           input-align="right"
           :rules="[{ required: true, message: '请填写用户名' }]"
         />
@@ -37,6 +37,7 @@
           label="性别"
           input-align="right"
           placeholder="点击选择性别"
+          :rules="[{ required: true, message: '请选择性别' }]"
           @click="showGenderPicker = true"
         />
         <van-popup v-model="showGenderPicker" position="bottom">
@@ -55,6 +56,7 @@
           label="生日"
           input-align="right"
           placeholder="/年/月/日"
+          :rules="[{ required: true, message: '请选择出生日期' }]"
           @click="showDatePicker = true"
         />
         <van-popup v-model="showDatePicker" position="bottom">
@@ -73,7 +75,7 @@
           type="password"
           name="密码"
           label="所在地"
-          placeholder="家园工作室"
+          placeholder="请输入所在地"
           input-align="right"
           :rules="[{ required: true, message: '请填写所在地' }]"
         />
@@ -104,6 +106,15 @@
         </div>
       </van-form>
     </div>
+    <van-overlay :show="show" @click="show = false">
+      <div class="wrapper">
+        <div class="block">
+          <span class="change">
+            更改成功！
+          </span>
+        </div>
+      </div>
+    </van-overlay>
   </div>
 </template>
 
@@ -120,7 +131,9 @@ import { Popup } from "vant";
 import { DatetimePicker } from "vant";
 import { Icon } from "vant";
 import { Uploader } from "vant";
+import { Overlay } from "vant";
 
+Vue.use(Overlay);
 Vue.use(Uploader);
 Vue.use(Icon);
 Vue.use(DatetimePicker);
@@ -140,9 +153,6 @@ export default {
     onClickLeft() {
       this.$router.push("me");
     },
-    onSubmit(values) {
-      console.log("submit", values);
-    },
     genderConfirm(value) {
       this.gender = value;
       this.showGenderPicker = false;
@@ -151,9 +161,13 @@ export default {
       this.date = value;
       this.showdatePicker = false;
     },
+    onSubmit(){
+      this.show = true
+    }
   },
   data() {
-    return {  
+    return {
+      show: false,
       fileList: [],
       username: "",
       password: "",
@@ -182,11 +196,31 @@ export default {
   width: 100vw;
   margin-bottom: 0.7rem;
 }
+.wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 100%;
+}
+.block {
+  position:absolute;
+  top: 29%;
+  width: 2.9rem;
+  height: 0.8rem;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  margin: 0.3rem auto;
+  font-size: 0.3rem;
+  color: #FF9E9A;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  line-height: 0.8rem;
+}
 .image {
   position: absolute;
   top: 3rem;
   left: 50%;
-  margin-left: -1.2rem;
+  margin-left: -1.05rem;
   border-radius: 50%;
   border: 0.04rem solid;
   border-color: #ff9e9a;
@@ -219,8 +253,11 @@ export default {
   text-align: center;
   line-height: 0.8rem;
 }
-.btn{
-margin-left: 0.1rem;
+.change{
+  margin-left: 0.1rem;
+}
+.btn {
+  margin-left: 0.1rem;
 }
 .divider1 {
   border-top: 0.04rem solid;
@@ -230,8 +267,12 @@ margin-left: 0.1rem;
   position: fixed;
   top: 0.2rem;
   left: 0.2rem;
-  z-index: 3;
+  z-index: 1;
   color: #ffffff;
   font-size: 0.6rem;
+}
+.change{
+  font-size: 16px;
+
 }
 </style>

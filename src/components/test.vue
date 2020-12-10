@@ -19,6 +19,7 @@ import { Icon } from "vant";
 
 Vue.use(Icon);
 export default {
+  name: "Test",
   methods: {
     exit: function () {
       sessionStorage.clear();
@@ -27,8 +28,8 @@ export default {
     about: function () {
       this.$router.push("/About");
     },
-    edit:function(){
-      this.$router.push("/edit")
+    edit: function () {
+      this.$router.push("/edit");
     },
     handleCommand(cmditem) {
       switch (cmditem) {
