@@ -219,6 +219,9 @@ export default {
   text-align: center;
   line-height: 0.8rem;
 }
+.btn{
+margin-left: 0.1rem;
+}
 .divider1 {
   border-top: 0.04rem solid;
   border-color: #ff9e9a;

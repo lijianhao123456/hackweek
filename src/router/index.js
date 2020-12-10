@@ -9,7 +9,8 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      name: "start",
+      component: () => import("../views/start.vue"),
     },
     {
       path: "/login",
@@ -69,6 +70,12 @@ const router = new VueRouter({
       path: "/edit",
       name: "edit",
       component: () => import("../views/edit.vue"),
+      meta: { keepAlive: true, index: 8 }
+    },
+    {
+      path: "/followers",
+      name: "followers",
+      component: () => import("../views/followers.vue"),
       meta: { keepAlive: true, index: 8 }
     },
     // {

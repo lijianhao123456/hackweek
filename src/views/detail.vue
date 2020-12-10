@@ -34,8 +34,9 @@
       </van-swipe>
     </div>
     <div class="container">
-      <div class="description">本店新到</div>
-      <div>
+      <div class="title">本店新到</div>
+      <div class="description">
+        好好好好好
       </div>
     </div>
     <div class="num">
@@ -240,7 +241,7 @@ export default {
   text-align: center;
   line-height: 0.48rem;
 }
-.description {
+.title {
   position: absolute;
   top: 0.6rem;
   left: 0.4rem;
@@ -248,6 +249,13 @@ export default {
   padding-bottom: 0.2rem;
   border-bottom: 1px solid;
   border-color: #ff9e9a;
+}
+.description{
+  position: absolute;
+  top: 1.5rem;
+  left: 0.4rem;
+  font-size: 0.3rem;
+  padding-bottom: 0.2rem;
 }
 .likes {
   font-size: 0.5rem;
