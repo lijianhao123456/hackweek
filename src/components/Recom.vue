@@ -1,7 +1,7 @@
 <template>
   <div class="Mine-categories-swipe">
     <van-swipe
-      indicator-color="#F5E0E0"
+      indicator-color="#FF9E9A"
       :loop="false"
       class="my-swipe"
       :autoplay="3000"

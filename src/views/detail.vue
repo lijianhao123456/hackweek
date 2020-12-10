@@ -3,21 +3,13 @@
     <!-- <input v-model="loginForm.username" />
     <input v-model="loginForm.password" /> -->
     <div style="position: relative">
-      <van-nav-bar title="商品详情" left-text="返回" left-arrow @click-left="onClickLeft">
+      <van-nav-bar title="商品详情" left-arrow @click-left="onClickLeft">
         <template #right>
-          <i class="el-icon-share" @click="share" style="font-size: 30px"></i>
+          <i class="el-icon-share" @click="share" style="font-size: 25px;color:#ffffff"></i>
         </template>
       </van-nav-bar>
     </div>
-    <div class="Mine-categories-swipe">
-      <van-swipe class="my-swipe" :autoplay="9999999999">
-        <van-swipe-item v-for="(image, index) in images" :key="index">
-          <img v-lazy="image" />
-        </van-swipe-item>
-      </van-swipe>
-    </div>
-    <div class="container">
-      <div class="description">本店新到</div>
+    <div class="user">
       <div class="owner">
         <van-image
           round
@@ -29,8 +21,21 @@
         <span class="ownerName"> 李健豪 </span>
       </div>
       <div class="likes">
-        <van-icon class="like" name="like-o" />
-        999
+        <div class="button" @click="sorry">
+          <span class="btn">关注</span>
+        </div>
+      </div>
+    </div>
+    <div class="Mine-categories-swipe">
+      <van-swipe class="my-swipe" :autoplay="9999999999">
+        <van-swipe-item v-for="(image, index) in images" :key="index">
+          <img v-lazy="image" />
+        </van-swipe-item>
+      </van-swipe>
+    </div>
+    <div class="container">
+      <div class="description">本店新到</div>
+      <div>
       </div>
     </div>
     <div class="num">
@@ -57,11 +62,19 @@
       <van-search
         v-model="value"
         shape="round"
-        background="#FF9E9A"
         placeholder="说点什么…"
         left-icon="edit"
         @search="search"
-      />
+        show-action
+      >
+        <template #action>
+          <van-icon
+            class="like"
+            size="0.3rem"
+            name="http://hellosun.net.cn/hackweek/good.svg"
+          />
+        </template>
+      </van-search>
     </div>
     <van-share-sheet
       v-model="showShare"
@@ -111,7 +124,7 @@ export default {
       this.$router.push("login");
     },
     onClickLeft() {
-      this.$router.back(-1);
+      this.$router.push("Home")
     },
     share() {
       console.log(1);
@@ -142,6 +155,12 @@ export default {
     search() {
       Toast({
         message: "不许评论！",
+        icon: "smile",
+      });
+    },
+    sorry() {
+      Toast({
+        message: "不许关注！",
         icon: "smile",
       });
     },
@@ -194,11 +213,8 @@ export default {
 }
 .container {
   position: relative;
-  background-color: #f5e0e0;
   height: 3.5rem;
   width: 100%;
-  border-radius: 0 0 5px 5px;
-  border-bottom: 1px gray solid;
 }
 .owner {
   display: flex;
@@ -210,12 +226,28 @@ export default {
 }
 .ownerName {
   margin-left: 0.2rem;
+  color: #ff9e9a;
+}
+.button {
+  width: 1rem;
+  height: 0.48rem;
+  background-color: #ffe7e7;
+  border-radius: 0.3rem;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.15);
+  font-size: 0.2rem;
+  color: #ff9e9a;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  line-height: 0.48rem;
 }
 .description {
   position: absolute;
-  top: 0.3rem;
-  left: 0.3rem;
+  top: 0.6rem;
+  left: 0.4rem;
   font-size: 0.4rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid;
+  border-color: #ff9e9a;
 }
 .likes {
   font-size: 0.5rem;
@@ -245,5 +277,10 @@ export default {
 }
 .input {
   width: 80%;
+}
+.user {
+  position: relative;
+  width: 100%;
+  height: 1rem;
 }
 </style>

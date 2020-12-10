@@ -2,8 +2,10 @@
   <div class="home">
     <!-- <input v-model="loginForm.username" />
     <input v-model="loginForm.password" /> -->
-    <div style="position: relative">
-      <van-nav-bar left-text="返回" left-arrow @click-left="onClickLeft" />
+    <div style="position: relative;z-index:2">
+      <div class="arrow">
+        <van-icon name="arrow-left" @click="onClickLeft" size="0.6rem" color="#FF9E9A" />
+      </div>
       <test />
     </div>
     <div>
@@ -40,7 +42,7 @@ export default {
   },
   methods: {
     onClickLeft() {
-      this.$router.back(-1);
+      this.$router.push("Home");
     },
   },
   data() {
@@ -48,4 +50,11 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scope>
+.arrow{
+  position:absolute;
+  top: -0.1rem;
+  left: 0.2rem;
+  z-index: 3;
+}
+</style>

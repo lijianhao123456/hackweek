@@ -23,21 +23,21 @@ export default {
       this.$router.push("/About");
     },
     register: function () {
-      console.log(this.registerForm)
-      this.$store.dispatch("register",{
-        registerForm:this.registerForm,
-        router:this.$router});
+      console.log(this.registerForm);
+      this.$store.dispatch("register", {
+        registerForm: this.registerForm,
+        router: this.$router,
+      });
     },
   },
   data() {
     return {
       registerForm: {
-        username: "lijianhao",                                                           //接上数据
+        username: "lijianhao", //接上数据
         password: "laji",
       },
     };
   },
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>

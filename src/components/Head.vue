@@ -1,5 +1,5 @@
 <template>
-  <van-tabs background="#FF9E9A" style="margin-top:-1px" v-model="active">
+  <van-tabs background="#FF9E9A"  style="margin-top: -1px" v-model="active">
     <van-tab title="关注" to="/follow"></van-tab>
     <van-tab title="发现"></van-tab>
   </van-tabs>

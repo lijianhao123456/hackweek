@@ -8,9 +8,9 @@
     lazy-render
     line-width="0.54rem"
     line-height="0.1rem"
-    color="#F5E0E0"
-    title-active-color="#F4A9A9"
-    title-inactive-color="#F4A9A9"
+    color="#FF8686"
+    title-active-color="#F3A4A5"
+    title-inactive-color="#F3A4A5"
   >
     <van-tab title="时装">
       <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
@@ -23,8 +23,15 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon name="like-o" />
-                {{ value.owner }}
+                <van-image
+                  round
+                  width="0.4rem"
+                  height="0.4rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
+                <span class="ownerName">
+                  {{ value.owner }}
+                </span>
               </div>
               <div class="info">{{ value.info }}</div>
               <div class="likes">
@@ -253,9 +260,16 @@ export default {
   border-radius: 0.1rem;
 }
 .owner {
+  display: flex;
+  align-items: center;
   position: absolute;
   left: 0.1rem;
   bottom: 0.1rem;
+  font-size: 0.2rem;
+}
+.ownerName {
+  margin-left: 0.08rem;
+  color: #ff9e9a;
 }
 .info {
   position: absolute;

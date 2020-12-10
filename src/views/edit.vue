@@ -2,8 +2,10 @@
   <div class="home">
     <!-- <input v-model="loginForm.username" />
     <input v-model="loginForm.password" /> -->
-    <van-nav-bar left-text="返回" title="编辑资料" left-arrow @click-left="onClickLeft" />
     <div class="container">
+      <div class="arrow" @click="onClickLeft">
+        <i class="el-icon-arrow-left"></i>
+      </div>
       <div class="image">
         <van-image
           round
@@ -14,80 +16,91 @@
         />
       </div>
     </div>
+    <div class="divider">
+      <span> 个人信息 </span>
+    </div>
     <div class="form">
       <van-form @submit="onSubmit">
-        <div class="form-group">
-          <van-field
-            v-model="username"
-            name="用户名"
-            label="用户名"
-            placeholder="用户名"
-            :rules="[{ required: true, message: '请填写用户名' }]"
+        <van-field
+          v-model="username"
+          name="用户名"
+          label="用户名"
+          placeholder="用户名"
+          input-align="right"
+          :rules="[{ required: true, message: '请填写用户名' }]"
+        />
+        <van-field
+          readonly
+          clickable
+          name="picker"
+          :value="gender"
+          label="性别"
+          input-align="right"
+          placeholder="点击选择性别"
+          @click="showGenderPicker = true"
+        />
+        <van-popup v-model="showGenderPicker" position="bottom">
+          <van-picker
+            show-toolbar
+            :columns="columns"
+            @confirm="genderConfirm"
+            @cancel="showGenderPicker = false"
           />
-        </div>
-        <div class="form-group">
-          <van-field
-            readonly
-            clickable
-            name="picker"
-            :value="gender"
-            label="性别"
-            placeholder="点击选择性别"
-            @click="showGenderPicker = true"
+        </van-popup>
+        <van-field
+          readonly
+          clickable
+          name="datetimePicker"
+          :value="date"
+          label="生日"
+          input-align="right"
+          placeholder="/年/月/日"
+          @click="showDatePicker = true"
+        />
+        <van-popup v-model="showDatePicker" position="bottom">
+          <van-datetime-picker
+            v-model="defaultDate"
+            type="date"
+            title="选择年月日"
+            @confirm="dateConfirm"
+            @cancel="showDatePicker = false"
+            :min-date="minDate"
+            :max-date="currentDate"
           />
-          <van-popup v-model="showGenderPicker" position="bottom">
-            <van-picker
-              show-toolbar
-              :columns="columns"
-              @confirm="genderConfirm"
-              @cancel="showGenderPicker = false"
-            />
-          </van-popup>
+        </van-popup>
+        <van-field
+          v-model="password"
+          type="password"
+          name="密码"
+          label="所在地"
+          placeholder="家园工作室"
+          input-align="right"
+          :rules="[{ required: true, message: '请填写所在地' }]"
+        />
+        <!-- <van-field
+          v-model="password"
+          type="password"
+          name="密码"
+          label="密码"
+          placeholder="密码"
+          input-align="right"
+          :rules="[{ required: true, message: '请填写密码' }]"
+        /> -->
+        <div class="divider">
+          <span> 简介 </span>
         </div>
-        <div class="form-group">
-          <van-field
-            readonly
-            clickable
-            name="datetimePicker"
-            :value="date"
-            label="时间选择"
-            placeholder="点击选择时间"
-            @click="showDatePicker = true"
-          />
-          <van-popup v-model="showDatePicker" position="bottom">
-            <van-datetime-picker
-              v-model="defaultDate"
-              type="date"
-              title="选择年月日"
-              @confirm="dateConfirm"
-              @cancel="showDatePicker = false"
-              :min-date="minDate"
-              :max-date="currentDate"
-            />
-          </van-popup>
-        </div>
-        <div class="form-group">
-          <van-field
-            v-model="password"
-            type="password"
-            name="密码"
-            label="密码"
-            placeholder="密码"
-            :rules="[{ required: true, message: '请填写密码' }]"
-          />
-        </div>
-        <div class="form-group">
-          <van-field
-            v-model="password"
-            type="password"
-            name="密码"
-            label="密码"
-            placeholder="密码"
-            :rules="[{ required: true, message: '请填写密码' }]"
-          />
-        </div>
-        <div style="margin: 16px">
-          <van-button round block type="info" native-type="submit"> 提交 </van-button>
+        <van-field
+          v-model="message"
+          autosize
+          type="textarea"
+          maxlength="30"
+          placeholder="写下你想说的话叭~"
+          show-word-limit
+        />
+        <div class="divider1">
+          <div class="button">
+            <span class="btn">确认</span>
+          </div>
         </div>
       </van-form>
     </div>
@@ -105,7 +118,11 @@ import { Button } from "vant";
 import { Search } from "vant";
 import { Popup } from "vant";
 import { DatetimePicker } from "vant";
+import { Icon } from "vant";
+import { Uploader } from "vant";
 
+Vue.use(Uploader);
+Vue.use(Icon);
 Vue.use(DatetimePicker);
 Vue.use(Popup);
 Vue.use(Search);
@@ -121,7 +138,7 @@ export default {
   components: {},
   methods: {
     onClickLeft() {
-      this.$router.back(-1);
+      this.$router.push("me");
     },
     onSubmit(values) {
       console.log("submit", values);
@@ -136,7 +153,8 @@ export default {
     },
   },
   data() {
-    return {
+    return {  
+      fileList: [],
       username: "",
       password: "",
       value: "",
@@ -148,27 +166,69 @@ export default {
       minDate: new Date(1990, 0, 1),
       defaultDate: new Date(2002, 6, 2),
       currentDate: new Date(),
+      message: "",
     };
   },
 };
 </script>
 <style scoped>
-.home {
-  background-color: pink;
-}
 .container {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   position: relative;
+  /* z-index: 2; */
+  height: 4.4rem;
+  background-image: url(../assets/xiaojiayuan.png);
+  width: 100vw;
+  margin-bottom: 0.7rem;
 }
 .image {
-  margin-top: 0.2rem;
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  margin-left: -1.2rem;
+  border-radius: 50%;
+  border: 0.04rem solid;
+  border-color: #ff9e9a;
+  width: 2rem;
+  height: 2rem;
 }
-.form {
-  margin: auto;
-  width: 80%;
-}
+
 .form-group {
   margin-bottom: 0.4rem;
+}
+.divider {
+  font-size: 16px;
+  border-top: 0.04rem solid;
+  border-bottom: 0.04rem solid;
+  border-color: #ff9e9a;
+  padding: 0.15rem 0.3rem;
+  color: #ff9e9a;
+  font-weight: bold;
+}
+.button {
+  width: 1.5rem;
+  height: 0.8rem;
+  background-color: #92a0ff;
+  border-radius: 0.3rem;
+  box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.15);
+  margin: 0.3rem auto;
+  font-size: 0.3rem;
+  color: #ffffff;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  line-height: 0.8rem;
+}
+.divider1 {
+  border-top: 0.04rem solid;
+  border-color: #ff9e9a;
+}
+.arrow {
+  position: fixed;
+  top: 0.2rem;
+  left: 0.2rem;
+  z-index: 3;
+  color: #ffffff;
+  font-size: 0.6rem;
 }
 </style>

@@ -17,7 +17,19 @@ module.exports = {
             'search-left-icon-color':'#FF9E9A',
             'search-input-height':'26px',
             'tabbar-background-color':'#FF9E9A',
-            'tabbar-item-text-color':'#ffffff'
+            'tabbar-item-text-color':'#ffffff',
+            'nav-bar-icon-color':'#FFFFFF',
+            'nav-bar-arrow-size':'0.6rem',
+            'field-label-color':'#FF9E9A',
+            'field-word-limit-color':'#FF9E9A',
+            'field-placeholder-text-color':'#FF9E9A',
+            'nav-bar-background-color':'#FF9E9A', 
+            'nav-bar-text-color':'#FFFFFF',
+            'nav-bar-title-text-color':'#FFFFFF',
+            'cell-border-color':'#F5E0E0',
+            'cell-text-color':'#FF9E9A',
+            'cell-right-icon-color':'#FF9E9A',
+            'search-content-background-color':'#E3E3E3'
             // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
             // hack: `true; @import "~@/styles/vant.less";`,
           },

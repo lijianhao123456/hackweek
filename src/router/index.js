@@ -71,6 +71,12 @@ const router = new VueRouter({
       component: () => import("../views/edit.vue"),
       meta: { keepAlive: true, index: 8 }
     },
+    // {
+    //   path: "/llq",
+    //   name: "llq",
+    //   component: () => import("../views/llq.vue"),
+    //   meta: { keepAlive: true, index: 8 }
+    // }
   ]
 });
 

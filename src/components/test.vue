@@ -1,13 +1,14 @@
 <template>
   <el-dropdown @command="handleCommand" class="dropdown">
     <span class="el-dropdown-link">
-      <van-icon name="wap-nav" size="30" />
+      <van-icon name="wap-nav" color="#FF9E9A" size="0.6rem" />
     </span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item disabled>我的评价</el-dropdown-item>
       <el-dropdown-item disabled>设置</el-dropdown-item>
+      <el-dropdown-item command="edit">编辑资料</el-dropdown-item>
       <el-dropdown-item command="about">关于我们</el-dropdown-item>
-      <el-dropdown-item command= "exit">退出登录</el-dropdown-item>
+      <el-dropdown-item command="exit">退出登录</el-dropdown-item>
     </el-dropdown-menu>
   </el-dropdown>
 </template>
@@ -26,6 +27,9 @@ export default {
     about: function () {
       this.$router.push("/About");
     },
+    edit:function(){
+      this.$router.push("/edit")
+    },
     handleCommand(cmditem) {
       switch (cmditem) {
         case "about":
@@ -33,6 +37,9 @@ export default {
           break;
         case "exit":
           this.exit();
+          break;
+        case "edit":
+          this.edit();
           break;
       }
     },
@@ -47,10 +54,10 @@ export default {
 .el-icon-arrow-down {
   font-size: 12px;
 }
-.dropdown{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    z-index: 1;
+.dropdown {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
 }
 </style>

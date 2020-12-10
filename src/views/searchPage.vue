@@ -4,8 +4,17 @@
       v-model="value"
       shape="round"
       @search="Search"
+      show-action
       placeholder="请输入搜索关键词"
+      maxlength="20"
+      background="#FF9E9B"
     >
+      <template #left>
+        <van-icon size="0.4rem" color="#ffffff" @click="onClickLeft" name="arrow-left" />
+      </template>
+      <template #action>
+        <div @click="Search">搜索</div>
+      </template>
     </van-search>
     <div class="container">
       <div v-for="value in info" class="card" @click="goToDetail">
@@ -74,6 +83,9 @@ export default {
     },
     goToDetail() {
       this.$router.push("detail");
+    },
+    onClickLeft() {
+      this.$router.back(-1);
     },
   },
   computed: {
