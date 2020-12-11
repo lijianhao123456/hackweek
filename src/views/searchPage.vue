@@ -86,6 +86,7 @@ export default {
     },
     onClickLeft() {
       this.$router.back(-1);
+      this.$store.commit("clearSearch")
     },
   },
   computed: {
@@ -115,7 +116,7 @@ export default {
   border-radius: 5px;
 }
 .container {
-  margin: 0 auto;
+  margin: 0.2rem auto;
   width: 7.2rem;
   display: flex;
   flex-direction: row;

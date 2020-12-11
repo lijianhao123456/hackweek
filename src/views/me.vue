@@ -6,7 +6,7 @@
       </div>
       <Test />
     </div>
-    <div class="user">
+    <div @click="sorry" class="user">
       <div class="img_box">
         <van-image
           round
@@ -19,7 +19,7 @@
       <div class="tabbox_1">
         <p>获赞0</p>
         <p>关注0</p>
-        <p>粉丝9</p>
+        <p @click="goToFollowers">粉丝9</p>
       </div>
     </div>
     <information />
@@ -33,7 +33,9 @@ import Test from "../components/test.vue";
 import Vue from "vue";
 import { Image as VanImage } from "vant";
 import Navigation from "../components/navigation.vue";
+import { Toast } from "vant";
 
+Vue.use(Toast);
 Vue.use(VanImage);
 export default {
   name: "Me",
@@ -44,7 +46,16 @@ export default {
   },
   methods: {
     onClickLeft() {
-      this.$router.back(-1);
+      this.$router.push("home");
+    },
+    goToFollowers() {
+      this.$router.push("followers");
+    },
+    sorry() {
+      Toast({
+        message: "不许上传背景图！",
+        icon: "smile",
+      });
     },
   },
   data() {

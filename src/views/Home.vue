@@ -25,11 +25,11 @@ export default {
     Navigation,
   },
   created() {
-    this.$store.dispatch("getInfo", 0);
-    this.$store.dispatch("getInfo", 1);
-    this.$store.dispatch("getInfo", 2);
-    this.$store.dispatch("getInfo", 3);
-    this.$store.dispatch("getInfo", 4);
+    // this.$store.dispatch("getInfo", 0);
+    // this.$store.dispatch("getInfo", 1);
+    // this.$store.dispatch("getInfo", 2);
+    // this.$store.dispatch("getInfo", 3);
+    // this.$store.dispatch("getInfo", 4);
   },
 };
 </script>

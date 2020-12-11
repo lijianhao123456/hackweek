@@ -58,7 +58,12 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon name="like-o" />
+                <van-image
+                  round
+                  width="0.4rem"
+                  height="0.4rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
@@ -86,7 +91,12 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon name="like-o" />
+                <van-image
+                  round
+                  width="0.4rem"
+                  height="0.4rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
@@ -114,7 +124,12 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon name="like-o" />
+                <van-image
+                  round
+                  width="0.4rem"
+                  height="0.4rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
@@ -142,7 +157,12 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-icon name="like-o" />
+                <van-image
+                  round
+                  width="0.4rem"
+                  height="0.4rem"
+                  src="https://img.yzcdn.cn/vant/cat.jpeg"
+                />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.info }}</div>
@@ -234,6 +254,7 @@ export default {
   background-color: #f5e0e0;
   margin: 0 0.05rem 0.2rem;
   border-radius: 5px;
+  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.15);
 }
 .container {
   margin: 0 auto;
@@ -248,7 +269,7 @@ export default {
   height: 3.9rem;
 }
 .brief {
-  background-color: #f5e0e0;
+  background-color: #ffffff;
   color: #f3a4a5;
   font-weight: bold;
   width: 3.5rem;

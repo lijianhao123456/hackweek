@@ -61,4 +61,11 @@ export default {
   top: 10px;
   z-index: 1;
 }
+.el-dropdown-menu{
+  background-color: #FFE7E7;
+
+}
+.el-dropdown-menu__item{
+  color:#FF9E9A;
+}
 </style>

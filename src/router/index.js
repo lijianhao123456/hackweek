@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import store from "../store";
 
 Vue.use(VueRouter);
 
@@ -40,43 +39,43 @@ const router = new VueRouter({
       path: "/searchPage",
       name: "searchPage",
       component: () => import("../views/searchPage.vue"),
-      meta: { keepAlive: true, index: 4 }
+      meta: { index: 4 }
     },
     {
       path: "/detail",
       name: "detail",
       component: () => import("../views/detail.vue"),
-      meta: { keepAlive: true, index: 5 }
+      meta: { keepAlive: true, index: 4 }
     },
     {
       path: "/about",
       name: "About",
       component: () => import("../views/About.vue"),
-      meta: { keepAlive: true, index: 3 }
+      meta: { keepAlive: true, index: 4 }
     },
     {
       path: "/message",
       name: "message",
       component: () => import("../views/message.vue"),
-      meta: { keepAlive: true, index: 7 }
+      meta: { keepAlive: true, index: 3 }
     },
     {
       path: "/me",
       name: "me",
       component: () => import("../views/me.vue"),
-      meta: { keepAlive: true, index: 8 }
+      meta: { keepAlive: true, index: 3 }
     },
     {
       path: "/edit",
       name: "edit",
       component: () => import("../views/edit.vue"),
-      meta: { keepAlive: true, index: 8 }
+      meta: { keepAlive: true, index: 4 }
     },
     {
       path: "/followers",
       name: "followers",
       component: () => import("../views/followers.vue"),
-      meta: { keepAlive: true, index: 8 }
+      meta: { keepAlive: true, index: 4 }
     },
     {
       path: "/test1",
@@ -89,7 +88,14 @@ const router = new VueRouter({
       name: "test2",
       component: () => import("../llq/views/Register.vue"),
       meta: { keepAlive: true, index: 8 }
-    }
+    },    
+    {
+      path: "/deliver",
+      name: "deliver",
+      component: () => import("../llq/views/Post.vue"),
+      meta: { keepAlive: true, index: 4 }
+    },
+
   ]
 });
 

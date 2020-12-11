@@ -15,7 +15,7 @@
   
 <script>
 	import Vue from "vue";
-	import { Icon } from "vant"	
+	import { Icon } from "vant"	;
 
 	Vue.use(Icon);
 
@@ -46,7 +46,7 @@
 				}
 			},
 		},
-};
+	};
 </script>
 
 <style>
@@ -63,4 +63,8 @@
   top: 10px;
   z-index: 1;
 }
+/* .el-dropdown-menu{ */
+	/* width: 40%; */
+	/* height: 60px; */
+/* } */
 </style>

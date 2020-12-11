@@ -19,6 +19,7 @@ export default {
   watch: {
     $route(to, from) {
       //实现路由跳转动画
+      if (to.meta.index = from.meta.index) this.transitionName = "";
       if (to.meta.index > from.meta.index) this.transitionName = "slide-left";
       if (to.meta.index < from.meta.index) this.transitionName = "slide-right";
     },

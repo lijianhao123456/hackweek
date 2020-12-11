@@ -20,7 +20,7 @@
       <span> 个人信息 </span>
     </div>
     <div class="form">
-      <van-form @submit="onSubmit" validate-trigger = "onSubmit">
+      <van-form @submit="onSubmit" validate-trigger="onSubmit">
         <van-field
           v-model="username"
           name="用户名"
@@ -61,7 +61,6 @@
         />
         <van-popup v-model="showDatePicker" position="bottom">
           <van-datetime-picker
-            v-model="defaultDate"
             type="date"
             title="选择年月日"
             @confirm="dateConfirm"
@@ -72,22 +71,12 @@
         </van-popup>
         <van-field
           v-model="password"
-          type="password"
           name="密码"
           label="所在地"
           placeholder="请输入所在地"
           input-align="right"
           :rules="[{ required: true, message: '请填写所在地' }]"
         />
-        <!-- <van-field
-          v-model="password"
-          type="password"
-          name="密码"
-          label="密码"
-          placeholder="密码"
-          input-align="right"
-          :rules="[{ required: true, message: '请填写密码' }]"
-        /> -->
         <div class="divider">
           <span> 简介 </span>
         </div>
@@ -100,7 +89,7 @@
           show-word-limit
         />
         <div class="divider1">
-          <div class="button">
+          <div @click="onSubmit" class="button">
             <span class="btn">确认</span>
           </div>
         </div>
@@ -109,9 +98,7 @@
     <van-overlay :show="show" @click="show = false">
       <div class="wrapper">
         <div class="block">
-          <span class="change">
-            更改成功！
-          </span>
+          <span class="change"> 更改失败！ </span>
         </div>
       </div>
     </van-overlay>
@@ -132,7 +119,9 @@ import { DatetimePicker } from "vant";
 import { Icon } from "vant";
 import { Uploader } from "vant";
 import { Overlay } from "vant";
+import { Toast } from 'vant';
 
+Vue.use(Toast);
 Vue.use(Overlay);
 Vue.use(Uploader);
 Vue.use(Icon);
@@ -157,13 +146,15 @@ export default {
       this.gender = value;
       this.showGenderPicker = false;
     },
-    dateConfirm(value) {
-      this.date = value;
-      this.showdatePicker = false;
+    dateConfirm(time) {
+      Toast({
+        message: "出现未知错误！",
+        icon: "smile",
+      });
     },
-    onSubmit(){
-      this.show = true
-    }
+    onSubmit() {
+      this.show = true;
+    },
   },
   data() {
     return {
@@ -177,7 +168,7 @@ export default {
       showGenderPicker: false,
       gender: "",
       date: "",
-      minDate: new Date(1990, 0, 1),
+      minDate: new Date(2000, 0, 1),
       defaultDate: new Date(2002, 6, 2),
       currentDate: new Date(),
       message: "",
@@ -203,7 +194,7 @@ export default {
   height: 100%;
 }
 .block {
-  position:absolute;
+  position: absolute;
   top: 29%;
   width: 2.9rem;
   height: 0.8rem;
@@ -211,7 +202,7 @@ export default {
   background-color: #fff;
   margin: 0.3rem auto;
   font-size: 0.3rem;
-  color: #FF9E9A;
+  color: #ff9e9a;
   letter-spacing: 0.05rem;
   text-align: center;
   line-height: 0.8rem;
@@ -253,7 +244,7 @@ export default {
   text-align: center;
   line-height: 0.8rem;
 }
-.change{
+.change {
   margin-left: 0.1rem;
 }
 .btn {
@@ -271,8 +262,7 @@ export default {
   color: #ffffff;
   font-size: 0.6rem;
 }
-.change{
+.change {
   font-size: 16px;
-
 }
 </style>

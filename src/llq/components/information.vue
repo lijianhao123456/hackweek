@@ -24,5 +24,8 @@
 </script>
 
 <style scoped>    
-
+van-tabs{
+    background-color: #FF9E9A;
+    color: #FF9E9A;
+}
 </style>

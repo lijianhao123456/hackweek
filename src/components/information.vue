@@ -9,12 +9,18 @@
   >
     <van-tab title="动态">
       <div class="container">
-        <div class="button">
-          <span class="btn">快来发布第一条动态叭~</span>
+        <div @click="goToDeliver" class="button">
+          <span  class="btn">快来发布第一条动态叭~</span>
         </div>
       </div>
     </van-tab>
-    <van-tab title="赞过"></van-tab>
+    <van-tab title="赞过">
+      <div class="container">
+        <div class="button">
+          <span class="btn">您暂时没有赞过的内容哦~</span>
+        </div>
+      </div>
+    </van-tab>
   </van-tabs>
 </template>
 
@@ -32,6 +38,11 @@ export default {
       active: 0,
     };
   },
+  methods:{
+    goToDeliver:function(){
+      this.$router.push("deliver")
+    }
+  }
 };
 </script>
 
@@ -39,15 +50,16 @@ export default {
 .button {
   width: 4.1rem;
   height: 0.6rem;
-  background-color: #FFE7E7;
+  background-color: #ffe7e7;
   border-radius: 0.3rem;
   box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.15);
-  margin:2.91rem auto;
+  margin: 2.91rem auto;
   font-size: 0.2rem;
-  color: #FF9E9A;
+  color: #ff9e9a;
   text-align: center;
   line-height: 0.6rem;
 }
 .btn {
   margin-left: 0.1rem;
-}</style>
+}
+</style>

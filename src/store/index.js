@@ -7,7 +7,7 @@ Vue.use(Toast);
 Vue.use(Vuex)
 
 // axios.defaults.baseURL = 'http://47.103.200.147:8080'
-axios.defaults.baseURL = 'http://192.168.2.180:8080'
+axios.defaults.baseURL = 'http://192.168.50.180:8080'
 axios.defaults.timeout = 5000;
 axios.interceptors.request.use(
   config => {
@@ -27,10 +27,10 @@ export default new Vuex.Store({
   state: {
     token: window.sessionStorage.getItem('token'),
     information0: [
-      // { owner: "3", info: "李健豪好菜", likes: "20" },
-      // { owner: "333", info: "李健豪好菜", likes: "20" },
-      // { owner: "1", info: "李健豪好菜", likes: "20" },
-      // { owner: "1", info: "李健豪好菜", likes: "20" },
+      { owner: "3", info: "李健豪好菜", likes: "20" },
+      { owner: "333", info: "李健豪好菜", likes: "20" },
+      { owner: "1", info: "李健豪好菜", likes: "20" },
+      { owner: "1", info: "李健豪好菜", likes: "20" },
     ],
     information1: [
       // { owner: "3", info: "刘珞芊好强", likes: "999" },
@@ -39,22 +39,22 @@ export default new Vuex.Store({
       // { owner: "1", info: "刘珞芊好强", likes: "666" },
     ],
     information2: [
-      { owner: "666", info: "郭芳泉好强", likes: "999" },
-      { owner: "555", info: "郭芳泉好强", likes: "888" },
-      { owner: "4", info: "郭芳泉好强", likes: "777" },
-      { owner: "1", info: "郭芳泉好强", likes: "666" },
+      // { owner: "666", info: "郭芳泉好强", likes: "999" },
+      // { owner: "555", info: "郭芳泉好强", likes: "888" },
+      // { owner: "4", info: "郭芳泉好强", likes: "777" },
+      // { owner: "1", info: "郭芳泉好强", likes: "666" },
     ],
     information3: [
-      { owner: "666", info: "龙伟好强", likes: "999" },
-      { owner: "555", info: "龙伟好强", likes: "888" },
-      { owner: "4", info: "龙伟好强", likes: "777" },
-      { owner: "1", info: "龙伟好强", likes: "666" },
+      // { owner: "666", info: "龙伟好强", likes: "999" },
+      // { owner: "555", info: "龙伟好强", likes: "888" },
+      // { owner: "4", info: "龙伟好强", likes: "777" },
+      // { owner: "1", info: "龙伟好强", likes: "666" },
     ],
     information4: [
-      { owner: "666", info: "大家都好强", likes: "999" },
-      { owner: "555", info: "大家都好强", likes: "888" },
-      { owner: "4", info: "大家都好强", likes: "777" },
-      { owner: "1", info: "大家都好强", likes: "666" },
+      // { owner: "666", info: "大家都好强", likes: "999" },
+      // { owner: "555", info: "大家都好强", likes: "888" },
+      // { owner: "4", info: "大家都好强", likes: "777" },
+      // { owner: "1", info: "大家都好强", likes: "666" },
     ],
     search: [
       // { owner: "666", info: "大家都好强", likes: "999" },
@@ -85,6 +85,9 @@ export default new Vuex.Store({
     },
     getSearch(state, info) {
       state.search = info
+    },
+    clearSearch(state){
+      state.search = []
     }
   },
   actions: {

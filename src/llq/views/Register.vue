@@ -58,6 +58,21 @@ export default {
     back,
     Checkbox,
   },
+  register: function () {
+    console.log(this.registerForm);
+    this.$store.dispatch("register", {
+      registerForm: this.registerForm,
+      router: this.$router,
+    });
+  },
+  data() {
+    return {
+      registerForm: {
+        username: "lijianhao", //接上数据
+        password: "laji",
+      },
+    };
+  },
 };
 </script>
 

@@ -9,7 +9,7 @@
     v-model="active"
   >
     <van-tab title="关注" to="/follow"></van-tab>
-    <van-tab title="发现"></van-tab>
+    <van-tab title="发现" to="/home"></van-tab>
   </van-tabs>
 </template>
 

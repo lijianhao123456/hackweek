@@ -27,13 +27,17 @@
 
 <script>
     import information from '../components/information.vue';
-    import Test from "../components/Test.vue";
+    import Test from '../components/Test.vue';
+    import Vue from 'vue';
+    import { Icon } from 'vant';
+    
+    Vue.use(Icon);
 
     export default {
     name: "Me",
     components: {
         Test,
-        information
+        information,
     },
     methods: {
         onClickLeft() {

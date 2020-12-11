@@ -29,7 +29,8 @@ module.exports = {
             'cell-border-color':'#F5E0E0',
             'cell-text-color':'#FF9E9A',
             'cell-right-icon-color':'#FF9E9A',
-            'search-content-background-color':'#E3E3E3'
+            'search-content-background-color':'#FFE7E7',
+            'field-input-text-color':'#FF9E9A'
             // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
             // hack: `true; @import "~@/styles/vant.less";`,
           },
