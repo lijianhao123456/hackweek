@@ -95,12 +95,6 @@ const router = new VueRouter({
       component: () => import("../views/Follow2.vue"),
       meta: { keepAlive: true, index: 5 }
     },
-    {
-      path: "/test3",
-      name: "test3",
-      component: () => import("../views/Post.vue"),
-      meta: { keepAlive: true, index: 5 }
-    },
   ]
 });
 
