@@ -95,20 +95,20 @@ const router = new VueRouter({
       component: () => import("../views/Follow2.vue"),
       meta: { keepAlive: true, index: 5 }
     },
-    // {
-    //   path: "/test3",
-    //   name: "test3",
-    //   component: () => import("../llq/Post.vue"),
-    //   meta: { keepAlive: true, index: 5 }
-    // },
+    {
+      path: "/test3",
+      name: "test3",
+      component: () => import("../views/Post.vue"),
+      meta: { keepAlive: true, index: 5 }
+    },
   ]
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.path === '/login') return next();
-  const tokenStr = window.sessionStorage.getItem('token')
-  if (!tokenStr) return next("/login")
-  next()
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.path === '/' || to.path === '/login') return next();
+//   const tokenStr = window.sessionStorage.getItem('token')
+//   if (!tokenStr) return next("/login")
+//   next()
+// })
 
 export default router;

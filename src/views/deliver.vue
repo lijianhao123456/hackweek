@@ -55,6 +55,27 @@
             <div @click="onSubmit" class="button">
               <span class="btn">发布</span>
             </div>
+            <van-overlay :show="show" @click="show = false">
+              <div class="wrapper">
+                <div class="block">
+                  <div class="tip">
+                    <p style="font-size: 15px">返回将会删除您编辑的所有内容…</p>
+                  </div>
+                  <div class="Button">
+                    <button
+                      @click="confirm"
+                      class="opt"
+                      style="background-color: #92a0ff"
+                    >
+                      <p>确认</p>
+                    </button>
+                    <button class="opt" style="background-color: #ff9e9a">
+                      <p>取消</p>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </van-overlay>
           </div>
         </div>
       </div>
@@ -64,12 +85,12 @@
 
 <script>
 import Vue from "vue";
-import { Image as VanImage } from "vant";
-import { Icon } from "vant";
 import { NavBar } from "vant";
-import { Uploader } from "vant";
 import qianduan from "@/assets/qianduan.jpg";
 import axios from "axios";
+import { Image as VanImage, Icon, Uploader, Overlay } from "vant";
+
+Vue.use(Overlay);
 Vue.use(Uploader);
 Vue.use(NavBar);
 Vue.use(Icon);
@@ -86,11 +107,16 @@ export default {
       info: "",
       cate: "",
       qianduan: qianduan,
+      show: false,
     };
   },
   methods: {
     onClickLeft() {
-      this.$router.push("home");
+      if (this.fileList.length = 0 || this.title != "" || this.info != "") {
+        this.show = true;
+      } else {
+        this.$router.push("home");
+      }
     },
     select0: function () {
       this.active = "时装";
@@ -132,29 +158,35 @@ export default {
       }
     },
     onSubmit() {
-      this.$store.dispatch("deliver", {
-        file: this.file,
-        cate: this.cate,
-        title: this.title,
-        info: this.info,
-        router: this.$router,
-      });
+      this.show = true;
+      // this.$store.dispatch("deliver", {
+      //   file: this.file,
+      //   cate: this.cate,
+      //   title: this.title,
+      //   info: this.info,
+      //   router: this.$router,
+      // });
+    },
+    confirm() {
+      this.$router.push("/home");
+    },
+    cancel() {
+      this.show = false;
     },
     afterRead(file) {
-        console.log(file);
-      let data = new FormData();
-      data.append("picture", file.file);
-      axios
-        .post("http://47.103.200.147:8080/upload", data, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          if (res.data.statusCode == 200) {
-
-          }
-        });
+      console.log(file);
+      // let data = new FormData();
+      // data.append("picture", file.file);
+      // axios
+      //   .post("http://47.103.200.147:8080/upload", data, {
+      //     headers: {
+      //       "Content-Type": "multipart/form-data",
+      //     },
+      //   })
+      //   .then((res) => {
+      //     if (res.data.statusCode == 200) {
+      //     }
+      //   });
     },
   },
 };
@@ -298,5 +330,46 @@ input {
   bottom: 1rem;
   right: 0;
   font-size: 16px;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.block {
+  width: 335px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 15px;
+  color: #ff9e9a;
+}
+.tip {
+  width: 224px;
+  height: 20px;
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.Button {
+  height: 250px;
+  width: 224px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+button{
+  border: none;
+}
+
+.opt {
+  color: #ffffff;
+  width: 75px;
+  height: 40px;
+  border-radius: 15px;
+  font-size: 15px;
 }
 </style>
