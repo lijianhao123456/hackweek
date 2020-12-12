@@ -119,7 +119,7 @@ import { DatetimePicker } from "vant";
 import { Icon } from "vant";
 import { Uploader } from "vant";
 import { Overlay } from "vant";
-import { Toast } from 'vant';
+import { Toast } from "vant";
 
 Vue.use(Toast);
 Vue.use(Overlay);
@@ -184,6 +184,7 @@ export default {
   /* z-index: 2; */
   height: 4.4rem;
   background-image: url(../assets/xiaojiayuan.png);
+  background-size: cover;
   width: 100vw;
   margin-bottom: 0.7rem;
 }

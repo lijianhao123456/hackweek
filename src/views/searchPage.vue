@@ -13,7 +13,7 @@
         <van-icon size="0.4rem" color="#ffffff" @click="onClickLeft" name="arrow-left" />
       </template>
       <template #action>
-        <div @click="Search">搜索</div>
+        <van-icon size="0.4rem" color="#ffffff" @click="Search" :name="search" />
       </template>
     </van-search>
     <div class="container">
@@ -28,14 +28,13 @@
             <van-icon class="like" name="like-o" />
             {{ value.owner }}
           </div>
-          <div class="info">{{ value.info }}</div>
+          <div class="info">{{ value.tittle}}</div>
           <div class="likes">
             <van-icon class="like" name="like-o" />
             <div>{{ value.likes }}</div>
           </div>
         </div>
       </div>
-
       <van-empty
         v-if="seen"
         image="search"
@@ -56,7 +55,7 @@ import { Toast } from "vant";
 import { Image as VanImage } from "vant";
 import { Loading } from "vant";
 import { Divider } from "vant";
-
+import search from "@/assets/image/icon/search.png";
 Vue.use(Divider);
 Vue.use(Loading);
 Vue.use(VanImage);
@@ -75,17 +74,18 @@ export default {
       value: "",
       seen: true,
       seen1: false,
+      search:search
     };
   },
   methods: {
     Search() {
-      this.$store.dispatch("search", { info: this.value });
+      this.$store.dispatch("search", { tittle: this.value });
     },
     goToDetail() {
       this.$router.push("detail");
     },
     onClickLeft() {
-      this.$router.back(-1);
+      this.$router.push("home");
       this.$store.commit("clearSearch")
     },
   },

@@ -1,0 +1,6 @@
+@font-face {
+  font-family: "HYZhengYuan"; /* 这个名字可以自己定义 */
+  src:url("./HYZhengYuan.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

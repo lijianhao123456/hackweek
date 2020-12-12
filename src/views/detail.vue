@@ -5,7 +5,11 @@
     <div style="position: relative">
       <van-nav-bar title="商品详情" left-arrow @click-left="onClickLeft">
         <template #right>
-          <i class="el-icon-share" @click="share" style="font-size: 25px;color:#ffffff"></i>
+          <i
+            class="el-icon-share"
+            @click="share"
+            style="font-size: 25px; color: #ffffff"
+          ></i>
         </template>
       </van-nav-bar>
     </div>
@@ -35,9 +39,7 @@
     </div>
     <div class="container">
       <div class="title">本店新到</div>
-      <div class="description">
-        好好好好好
-      </div>
+      <div class="description">本店新到黑色翻领西装，中意的同学们可以来看看哟！</div>
     </div>
     <div class="num">
       <span>共40条评论</span>
@@ -88,8 +90,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import Test from "../components/test.vue";
 import Vue from "vue";
 import { NavBar } from "vant";
 import { Image as VanImage } from "vant";
@@ -101,7 +101,12 @@ import { Search } from "vant";
 import { Icon } from "vant";
 import { List } from "vant";
 import { Cell, CellGroup } from "vant";
-
+import img1 from "@/assets/image/detail/1.png";
+import img2 from "@/assets/image/detail/2.png";
+import img3 from "@/assets/image/detail/3.png";
+import img4 from "@/assets/image/detail/4.png";
+import img5 from "@/assets/image/detail/5.png";
+import img6 from "@/assets/image/detail/6.png";
 Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(List);
@@ -116,22 +121,20 @@ Vue.use(NavBar);
 
 export default {
   name: "Home",
-  components: {
-    Test,
-  },
+  components: {},
   methods: {
     exit: function () {
       sessionStorage.clear();
       this.$router.push("login");
     },
     onClickLeft() {
-      this.$router.push("Home")
+      this.$router.push("Home");
     },
     share() {
       console.log(1);
       this.showShare = true;
     },
-    onSelect(option) {
+    onSelect() {
       Toast({
         message: "不许分享！",
         icon: "smile",
@@ -172,10 +175,6 @@ export default {
       list: [],
       loading: false,
       finished: false,
-      registerForm: {
-        username: "qwer", //接上数据
-        password: "123",
-      },
       showShare: false,
       options: [
         [
@@ -190,10 +189,7 @@ export default {
           { name: "小程序码", icon: "weapp-qrcode" },
         ],
       ],
-      images: [
-        "https://img.yzcdn.cn/vant/apple-1.jpg",
-        "https://img.yzcdn.cn/vant/apple-2.jpg",
-      ],
+      images: [img1, img2, img3, img4, img5, img6],
     };
   },
 };
@@ -250,7 +246,7 @@ export default {
   border-bottom: 1px solid;
   border-color: #ff9e9a;
 }
-.description{
+.description {
   position: absolute;
   top: 1.5rem;
   left: 0.4rem;
@@ -266,7 +262,11 @@ export default {
 .num {
   height: 0.6rem;
   font-size: 16px;
-  background-color: yellow;
+  /* color: #FF9E9A; */
+  border-top-style:solid;
+  border-bottom-style:solid;
+  border-width:2px;
+  border-color:#FF9E9A;
   position: relative;
   display: flex;
   align-items: center;

@@ -8,6 +8,7 @@ import './plugins/element.js'
 import 'vant/lib/index.css';
 import 'vant/lib/index.less';
 import './assets/styles/reset.css'
+import '@/assets/styles/HYZY.css'
 
 
 Vue.config.productionTip = false

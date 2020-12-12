@@ -1,6 +1,11 @@
 <template>
   <div>
     <van-nav-bar title="消息" left-arrow @click-left="onClickLeft" />
+    <!-- <div class="navbar">
+      <div class="navbar_left">
+        <i class="van-icon van-icon-arrow-left van-nav-bar__arrow"><!----></i>
+      <!-- </div>
+    </div> -->
     <van-notice-bar scrollable text="肝不动了…" />
     <van-cell
       icon="friends-o"
@@ -71,4 +76,33 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.navbar {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  height: 46px;
+  z-index: 1;
+  line-height: 22px;
+  text-align: center;
+  background-color: #ff9e9a;
+}
+.navbar_left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+</style>

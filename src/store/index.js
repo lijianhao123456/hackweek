@@ -6,8 +6,8 @@ import { Toast } from "vant";
 Vue.use(Toast);
 Vue.use(Vuex)
 
-// axios.defaults.baseURL = 'http://47.103.200.147:8080'
-axios.defaults.baseURL = 'http://192.168.50.180:8080'
+axios.defaults.baseURL = 'http://47.103.200.147:8080'
+// axios.defaults.baseURL = 'http://192.168.2.180:8080'
 axios.defaults.timeout = 5000;
 axios.interceptors.request.use(
   config => {
@@ -26,47 +26,27 @@ axios.interceptors.request.use(
 export default new Vuex.Store({
   state: {
     token: window.sessionStorage.getItem('token'),
-    information0: [
-      { owner: "3", info: "李健豪好菜", likes: "20" },
-      { owner: "333", info: "李健豪好菜", likes: "20" },
-      { owner: "1", info: "李健豪好菜", likes: "20" },
-      { owner: "1", info: "李健豪好菜", likes: "20" },
-    ],
-    information1: [
-      // { owner: "3", info: "刘珞芊好强", likes: "999" },
-      // { owner: "333", info: "刘珞芊好强", likes: "888" },
-      // { owner: "1", info: "刘珞芊好强", likes: "777" },
-      // { owner: "1", info: "刘珞芊好强", likes: "666" },
-    ],
-    information2: [
-      // { owner: "666", info: "郭芳泉好强", likes: "999" },
-      // { owner: "555", info: "郭芳泉好强", likes: "888" },
-      // { owner: "4", info: "郭芳泉好强", likes: "777" },
-      // { owner: "1", info: "郭芳泉好强", likes: "666" },
-    ],
-    information3: [
-      // { owner: "666", info: "龙伟好强", likes: "999" },
-      // { owner: "555", info: "龙伟好强", likes: "888" },
-      // { owner: "4", info: "龙伟好强", likes: "777" },
-      // { owner: "1", info: "龙伟好强", likes: "666" },
-    ],
-    information4: [
-      // { owner: "666", info: "大家都好强", likes: "999" },
-      // { owner: "555", info: "大家都好强", likes: "888" },
-      // { owner: "4", info: "大家都好强", likes: "777" },
-      // { owner: "1", info: "大家都好强", likes: "666" },
-    ],
-    search: [
-      // { owner: "666", info: "大家都好强", likes: "999" },
-      // { owner: "555", info: "大家都好强", likes: "888" },
-      // { owner: "4", info: "大家都好强", likes: "777" },
-      // { owner: "1", info: "大家都好强", likes: "666" },
-    ]
+    id: window.sessionStorage.getItem('id'),
+    username: window.sessionStorage.getItem('username'),
+    information0: [],
+    information1: [],
+    information2: [],
+    information3: [],
+    information4: [],
+    search: []
   },
   mutations: {
     setToken(state, token) {
       state.token = token
       window.sessionStorage.setItem('token', token)
+    },
+    setid(state, id) {
+      state.id = id
+      window.sessionStorage.setItem('id', id)
+    },
+    setusername(state, username) {
+      state.username = username
+      window.sessionStorage.setItem('username', username)
     },
     getInfo0(state, info) {
       state.information0 = info
@@ -86,9 +66,9 @@ export default new Vuex.Store({
     getSearch(state, info) {
       state.search = info
     },
-    clearSearch(state){
+    clearSearch(state) {
       state.search = []
-    }
+    },
   },
   actions: {
     async register(context, value) {
@@ -116,6 +96,7 @@ export default new Vuex.Store({
       }
     },
     async login(context, value) {
+      context.commit('setusername', value.loginForm.username)
       Toast.loading({
         duration: 0, // 持续展示 toast
         forbidClick: true,
@@ -130,6 +111,7 @@ export default new Vuex.Store({
       if (res.data.status == 200) {
         console.log("登录成功");
         context.commit('setToken', res.data.token)
+        context.commit('setid', res.data.id)
         Toast.success("登录成功");
         value.router.push("/Home")
       } else {
@@ -141,12 +123,6 @@ export default new Vuex.Store({
         method: 'get',
         url: `/figure/${value}`,
       })
-      // if (res.data.status == 200) {
-      //   console.log("获取成功");
-      //   Toast.success("获取信息成功");
-      // } else {
-      //   Toast.fail("获取信息失败");
-      // }
       context.commit(`getInfo${value}`, res.data.data)
     },
     async search(context, value) {
@@ -156,6 +132,22 @@ export default new Vuex.Store({
         data: value
       })
       context.commit("getSearch", res.data.data)
+    },
+    async changePwd(context, value) {
+      let _this = this
+      const res = await axios({
+        method: 'put',
+        url: `/user/editPwd/${_this.state.id}`,
+        data: value.changeForm
+      })
+      if (res.data.status == 200) {
+        Toast.success("修改成功");
+        value.router.push("/me")
+      } else {
+        Toast.fail(res.data.msg);
+      }
+    },
+    async deliver(context, value) {
     }
   },
   modules: {

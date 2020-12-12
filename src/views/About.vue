@@ -11,9 +11,16 @@
       </div>
       <div class="content_box">
         <div class="content">
-          <p style="font-size: 15px; color: #8d8b8b">
-            阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴阿巴
-          </p>
+          南窗是由十天极限挑战队共同打造的一款校内店铺资源展示平台，
+          现已开放各类商品橱窗，欢迎加入我们，一起来探索发现吧！
+          <br />
+          <br />噔！这儿是我们的小伙伴： <br />---------前端：李健豪 刘珞芊----
+          <br />---------后端：郭芳泉 龙伟------ <br />---------行政：胡昱琦 张晗 -----
+          <br />---------产品：赵晨婧 ---------- <br />---------设计：郭晶瑛-----------
+          <br />---------运营：徐思璠-----------
+          <div class="qq">有什么意见和建议欢迎反馈哦！ <br />QQ群：572350356 <br /></div>
+          <br />
+          <div class="date">十天极限存活挑战队 <br />2020年12月12日</div>
         </div>
       </div>
       <div class="version">
@@ -84,19 +91,19 @@ export default {
 }
 .content_box {
   width: 275px;
-  height: 77%;
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 2px 2px 5px 2px #dbdada;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .content {
   width: 88%;
-  height: 92%;
+  margin: auto;
+  padding: 0.5rem 0;
   /* background-color: violet; */
-  display: flex;
+  font-size: 16px;
+  color: #8d8b8b;
+  line-height: 25px;
+  text-indent: 1em;
 }
 .version {
   width: 100%;
@@ -104,5 +111,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.qq {
+  margin:0.5rem auto 0;
+  font-size: 16px;
+  text-align: center;
+}
+.date{
+  text-align: right;
 }
 </style>

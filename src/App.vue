@@ -1,10 +1,10 @@
 <template>
   <!-- <v-app> -->
-    <keep-alive>
-      <transition :name="transitionName">
-        <router-view />
-      </transition>
-    </keep-alive>
+  <keep-alive>
+    <transition :name="transitionName">
+      <router-view />
+    </transition>
+  </keep-alive>
   <!-- </v-app> -->
 </template>
 
@@ -19,9 +19,14 @@ export default {
   watch: {
     $route(to, from) {
       //实现路由跳转动画
-      if (to.meta.index = from.meta.index) this.transitionName = "";
-      if (to.meta.index > from.meta.index) this.transitionName = "slide-left";
-      if (to.meta.index < from.meta.index) this.transitionName = "slide-right";
+      // if (to.meta.index = from.meta.index) this.transitionName = "";
+      if (to.meta.index == 4 && from.meta.index == 4) {
+        this.transitionName = "";
+      } else if (to.meta.index < from.meta.index) {
+        this.transitionName = "slide-right";
+      } else if (to.meta.index > from.meta.index) {
+        this.transitionName = "slide-left";
+      }
     },
   },
 };
@@ -35,12 +40,10 @@ export default {
 }
 
 .slide-right-enter {
-
-  transform: translate(-100%);
+  transform: translateX(-100%);
 }
 
 .slide-right-leave-active {
-
   transform: translateX(100%);
 }
 

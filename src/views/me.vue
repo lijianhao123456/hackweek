@@ -4,21 +4,21 @@
       <div class="arrow">
         <van-icon name="arrow-left" @click="onClickLeft" size="30px" color="#FF9E9A" />
       </div>
-      <Test />
+      <dropdown />
     </div>
-    <div @click="sorry" class="user">
+    <div class="user">
+      <div style="width:100%;height:100%" @click="sorry">
+      </div>
       <div class="img_box">
-        <van-image
-          round
-          width="1.2rem"
-          height="1.2rem"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
-        />
-        <h1 style="font-size: 20px">小山女</h1>
+        <van-uploader v-model="fileList" :max-count="1">
+          <van-image round width="1.2rem" height="1.2rem" :src=url />
+          <!-- <input type="file" accept="image/*" class="van-uploader__input"> -->
+        </van-uploader>
+        <h1 style="font-size: 20px;font-weight:bold">小山女</h1>
       </div>
       <div class="tabbox_1">
         <p>获赞0</p>
-        <p>关注0</p>
+        <p @click="goToFollower2">关注0</p>
         <p @click="goToFollowers">粉丝9</p>
       </div>
     </div>
@@ -29,18 +29,21 @@
 
 <script>
 import information from "../components/information.vue";
-import Test from "../components/test.vue";
+import dropdown from "../components/dropdown";
+import avatar from "@/assets/image/avatar.png";
 import Vue from "vue";
 import { Image as VanImage } from "vant";
 import Navigation from "../components/navigation.vue";
 import { Toast } from "vant";
+import { Uploader } from "vant";
 
+Vue.use(Uploader);
 Vue.use(Toast);
 Vue.use(VanImage);
 export default {
   name: "Me",
   components: {
-    Test,
+    dropdown,
     information,
     Navigation,
   },
@@ -57,10 +60,19 @@ export default {
         icon: "smile",
       });
     },
+    goToFollower2(){
+      this.$router.push("follower2");      
+    }
   },
   data() {
-    return {};
+    return {
+      fileList:[],
+      url: avatar,
+    };
   },
+  watch:{
+    
+  }
 };
 </script>
 
@@ -81,6 +93,7 @@ export default {
   height: 4rem;
   background-color: grey;
   background-image: url(../assets/mybg.png);
+  background-size: cover;
 }
 .img_box {
   position: absolute;
@@ -105,4 +118,5 @@ export default {
   left: 0.2rem;
   z-index: 3;
 }
+
 </style>

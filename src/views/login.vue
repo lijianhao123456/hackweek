@@ -7,7 +7,7 @@
           round
           width="1.5rem"
           height="1.5rem"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
+          :src=avatar
         />
       </div>
     </div>
@@ -38,7 +38,7 @@ import Vue from "vue";
 import { Icon } from "vant";
 import { Image as VanImage } from "vant";
 import { Toast } from "vant";
-
+import avatar from "@/assets/image/avatar.png";
 Vue.use(Toast);
 Vue.use(VanImage);
 Vue.use(Icon);
@@ -78,6 +78,7 @@ export default {
         password: "",
       },
       userToken: "",
+      avatar:avatar
     };
   },
 };
@@ -87,8 +88,6 @@ export default {
   width: 100vw;
   height: 100vh;
   background-image: url(../assets/loginbg.png);
-  overflow-y: auto;
-  background-repeat: no-repeat;
   background-size: cover;
 }
 .form {

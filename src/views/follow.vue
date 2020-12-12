@@ -40,8 +40,6 @@
 <script>
 import Head from "../components/Head.vue";
 import Search from "../components/Search.vue";
-import Recom from "../components/Recom.vue";
-import Testtab from "../components/testtab";
 import Navigation from "../components/navigation";
 
 export default {
@@ -49,8 +47,6 @@ export default {
   components: {
     Head,
     Search,
-    Recom,
-    Testtab,
     Navigation,
   },
   data() {

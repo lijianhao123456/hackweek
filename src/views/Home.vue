@@ -2,8 +2,8 @@
   <div>
     <Search />
     <Head />
-    <Recom />
-    <Testtab />
+    <Swipe />
+    <tab />
     <navigation />
   </div>
 </template>
@@ -11,25 +11,25 @@
   <script>
 import Head from "../components/Head.vue";
 import Search from "../components/Search.vue";
-import Recom from "../components/Recom.vue";
-import Testtab from "../components/testtab";
+import tab from "../components/tab";
 import Navigation from "../components/navigation";
+import Swipe from '../components/swipe.vue';
 
 export default {
   name: "Home",
   components: {
     Head,
     Search,
-    Recom,
-    Testtab,
+    Swipe,
+    tab,
     Navigation,
   },
   created() {
-    // this.$store.dispatch("getInfo", 0);
-    // this.$store.dispatch("getInfo", 1);
-    // this.$store.dispatch("getInfo", 2);
-    // this.$store.dispatch("getInfo", 3);
-    // this.$store.dispatch("getInfo", 4);
+    this.$store.dispatch("getInfo", 0);
+    this.$store.dispatch("getInfo", 1);
+    this.$store.dispatch("getInfo", 2);
+    this.$store.dispatch("getInfo", 3);
+    this.$store.dispatch("getInfo", 4);
   },
 };
 </script>

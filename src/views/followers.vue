@@ -101,6 +101,7 @@ export default {
   letter-spacing: 0.1rem;
   text-align: center;
   line-height: 0.48rem;
+  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.15);
 }
 .btn {
   margin-left: 0.1rem;
