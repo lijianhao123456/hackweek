@@ -1,5 +1,7 @@
 # hackweek
 
+#这前端太菜了，砍了一堆需求还没写完
+
 ## Project setup
 ```
 npm install
