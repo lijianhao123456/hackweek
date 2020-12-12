@@ -24,12 +24,12 @@ jobs:
         yarn
         echo build project
         yarn build
-#    - name: aliyun-oss-website-action
-#      uses: fangbinwei/aliyun-oss-website-action@v1
-#      with:
-#        folder: dist
-#        accessKeyId: ${{ secrets.ACCESSKEYID }}
-#        accessKeySecret: ${{ secrets.ACCESSKEYSECRET }}
-#        bucket: hackweek-2
-#        endpoint: hackweek-2.oss-cn-beijing.aliyuncs.com
-#        skipSetting: true
+    - name: deploy
+      uses: fangbinwei/aliyun-oss-website-action@v1
+      with:
+       folder: dist
+       accessKeyId: ${{ secrets.ACCESSKEYID }}
+       accessKeySecret: ${{ secrets.ACCESSKEYSECRET }}
+       bucket: hackweek-2
+       endpoint: hackweek-2.oss-cn-beijing.aliyuncs.com
+       skipSetting: true
