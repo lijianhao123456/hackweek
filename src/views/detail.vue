@@ -233,7 +233,6 @@ export default {
   height: 0.48rem;
   background-color: #ffe7e7;
   border-radius: 0.3rem;
-  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.15);
   font-size: 0.2rem;
   color: #ff9e9a;
   letter-spacing: 0.05rem;
