@@ -14,7 +14,7 @@ export default {
 .visible {
   width: 100vw;
   height: 100vh;
-  background-image: url(../assets/start.jpg);
-  background-size: cover;
+  background-image: url(../assets/start.png);
+  background-size: contain;
 }
 </style>
