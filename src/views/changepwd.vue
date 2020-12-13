@@ -18,7 +18,7 @@
           <span>{{ changeForm.oldPwd.length }}</span
           >/18
         </div>
-        <input maxlength="18" v-model="changeForm.oldPwd" type="text" />
+        <input maxlength="18" v-model="changeForm.oldPwd" type="password" />
       </div>
       <div class="formGroup">
         <span> 新密码 </span>
