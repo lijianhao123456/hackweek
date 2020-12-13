@@ -72,7 +72,7 @@ export default {
           this.changeForm.newpwd1.length >= 8 &&
           this.changeForm.newpwd2.length >= 8
         ) {
-          if (this.changeForm.oldPwd.length == this.changeForm.newpwd1) {
+          if (this.changeForm.oldPwd.length != this.changeForm.newpwd1) {
             if (this.changeForm.newpwd1 === this.changeForm.newpwd2) {
               this.$store.dispatch("changePwd", {
                 changeForm: {
