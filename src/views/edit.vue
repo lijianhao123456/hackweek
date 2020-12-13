@@ -16,7 +16,7 @@
         />
       </div>
     </div>
-    <div class="divider">
+    <div class="divider" style="margin-top:1.5rem">
       <span> 个人信息 </span>
     </div>
     <div class="form">
@@ -183,7 +183,7 @@ export default {
   justify-content: center; */
   position: relative;
   /* z-index: 2; */
-  height: 4.4rem;
+  height: 3.6rem;
   background-image: url(../assets/xiaojiayuan.png);
   background-size: cover;
   width: 100vw;
@@ -211,7 +211,7 @@ export default {
 }
 .image {
   position: absolute;
-  top: 3rem;
+  top: 2.5rem;
   left: 50%;
   margin-left: -1.05rem;
   border-radius: 50%;

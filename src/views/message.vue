@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="消息" left-arrow @click-left="onClickLeft" />
+    <van-nav-bar title="消息"  @click-left="onClickLeft" />
     <!-- <div class="navbar">
       <div class="navbar_left">
         <i class="van-icon van-icon-arrow-left van-nav-bar__arrow"><!----></i>

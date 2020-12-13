@@ -40,7 +40,7 @@ export default new Vuex.Store({
       state.token = token
       window.sessionStorage.setItem('token', token)
     },
-    setid(state, id) {
+    setId(state, id) {
       state.id = id
       window.sessionStorage.setItem('id', id)
     },
@@ -111,7 +111,7 @@ export default new Vuex.Store({
       if (res.data.status == 200) {
         console.log("登录成功");
         context.commit('setToken', res.data.token)
-        context.commit('setid', res.data.id)
+        context.commit('setId', res.data.id)
         Toast.success("登录成功");
         value.router.push("/Home")
       } else {
@@ -136,7 +136,6 @@ export default new Vuex.Store({
     async changePwd(context, value) {
       const res = await axios({
         method: 'put',
-        // url: `/user/${_this.state.id}`,
         url: `/user/editPwd/${this.state.id}`,
         data: value.changeForm
       })
@@ -150,7 +149,7 @@ export default new Vuex.Store({
     async deliver(context, value) {
       const res = await axios({
         method: "post",
-        url: "1",
+        url: "/user/makeActivity",
         data: value.deliver
       })
     }

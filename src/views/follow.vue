@@ -23,11 +23,7 @@
           </div>
           <div class="info">{{ value.info }}</div>
           <div class="likes">
-            <van-icon @click.stop="like"
-              class="like"
-              size="0.3rem"
-              :name="good"
-            />
+            <van-icon @click.stop="like" class="like" size="0.3rem" :name="good" />
             <div>{{ value.likes }}</div>
           </div>
         </div>
@@ -42,10 +38,10 @@ import Head from "../components/Head.vue";
 import Search from "../components/Search.vue";
 import Navigation from "../components/navigation";
 import good from "@/assets/image/icon/good.png";
-import Vue from 'vue';
-import { Image as VanImage } from 'vant';
-import { Loading } from 'vant';
-import { Toast } from 'vant';
+import Vue from "vue";
+import { Image as VanImage } from "vant";
+import { Loading } from "vant";
+import { Toast } from "vant";
 
 Vue.use(Toast);
 Vue.use(Loading);
@@ -93,6 +89,7 @@ export default {
   background-color: #f5e0e0;
   margin: 0 0.05rem 0.2rem;
   border-radius: 5px;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 .container {
   margin: 0.1rem auto;

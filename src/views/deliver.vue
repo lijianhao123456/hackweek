@@ -11,7 +11,6 @@
               multiple
               max-count="1"
               preview-size="160px"
-              :after-read="afterRead"
             />
           </div>
         </div>
@@ -37,7 +36,7 @@
         </div>
         <div class="content_box">
           <div class="content">
-            <div class="pswd-limit">
+            <div class="word-limit">
               <span>{{ info.length }}</span
               >/150
             </div>
@@ -184,21 +183,6 @@ export default {
     cancel() {
       this.show = false;
     },
-    afterRead(file) {
-      console.log(file);
-      // let data = new FormData();
-      // data.append("picture", file.file);
-      // axios
-      //   .post("http://47.103.200.147:8080/upload", data, {
-      //     headers: {
-      //       "Content-Type": "multipart/form-data",
-      //     },
-      //   })
-      //   .then((res) => {
-      //     if (res.data.statusCode == 200) {
-      //     }
-      //   });
-    },
   },
 };
 </script>
@@ -208,7 +192,6 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  overflow-y: auto;
   background-color: #f5e0e0;
 }
 .box {
@@ -235,24 +218,16 @@ export default {
   margin-left: 0.1rem;
 }
 .img {
-  width: 100%;
   height: 200px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 .photograph {
   width: 160px;
-  height: 160px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
   margin: 25px 0px 20px 13px;
 }
 .sort {
-  width: 335px;
-  height: 40px;
+  width: 6.7rem;
   border-radius: 15px;
   background-color: #ff9e9a;
   display: flex;
@@ -297,10 +272,8 @@ export default {
   flex-direction: column;
 }
 .detail {
-  width: 100%;
   height: 90%;
   margin-top: 10px;
-  color: #ff9e9a;
 }
 .el-dropdown-link {
   cursor: pointer;
@@ -319,7 +292,6 @@ textarea {
   width: 100%;
   height: 95%;
   margin-top: 10px;
-  color: #ff9e9a;
   font-size: 15px;
   line-height: 180%;
   border: none;
@@ -336,7 +308,7 @@ input {
 .van-uploader__preview {
   margin: 0;
 }
-.pswd-limit {
+.word-limit {
   position: absolute;
   bottom: 1rem;
   right: 0;

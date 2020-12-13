@@ -122,7 +122,7 @@ export default {
   background-color: #f5e0e0;
   margin: 0 0.05rem 0.2rem;
   border-radius: 5px;
-  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 .container {
   margin: 0.2rem auto;

@@ -168,14 +168,9 @@ export default {
   background-color: #ffe7e7;
   border-radius: 0.24rem;
   margin: auto;
-  font-size: 0.3rem;
+  font-size: 0.2rem;
   color: #ff9e9a;
-  letter-spacing: 0.1rem;
   text-align: center;
   line-height: 0.48rem;
-  box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.15);
-}
-.btn {
-  margin-left: 0.1rem;
 }
 </style>

@@ -3,12 +3,7 @@
     <van-icon name="arrow-left" @click="onClickLeft" size="30px" color="#FF9E9A" />
     <div class="img">
       <div>
-        <van-image
-          round
-          width="1.5rem"
-          height="1.5rem"
-          :src="avatar"
-        />
+        <van-image round width="1.5rem" height="1.5rem" :src="avatar" />
       </div>
     </div>
     <div class="form">
@@ -77,18 +72,25 @@ export default {
           this.changeForm.newpwd1.length >= 8 &&
           this.changeForm.newpwd2.length >= 8
         ) {
-          if (this.changeForm.newpwd1 === this.changeForm.newpwd2) {
-            this.$store.dispatch("changePwd", {
-              changeForm: {
-                old_pwd: this.changeForm.oldPwd,
-                new_pwd: this.changeForm.newpwd1,
-                username:this.$store.state.username
-              },
-              router: this.$router,
-            });
+          if (this.changeForm.oldPwd.length == this.changeForm.newpwd1) {
+            if (this.changeForm.newpwd1 === this.changeForm.newpwd2) {
+              this.$store.dispatch("changePwd", {
+                changeForm: {
+                  old_pwd: this.changeForm.oldPwd,
+                  new_pwd: this.changeForm.newpwd1,
+                  username: this.$store.state.username,
+                },
+                router: this.$router,
+              });
+            } else {
+              Toast({
+                message: "两次密码输入不一致",
+                icon: "cross",
+              });
+            }
           } else {
             Toast({
-              message: "两次密码输入不一致",
+              message: "新旧密码一致",
               icon: "cross",
             });
           }
@@ -108,7 +110,7 @@ export default {
         newpwd1: "",
         newpwd2: "",
       },
-      avatar:avatar
+      avatar: avatar,
     };
   },
 };

@@ -181,7 +181,6 @@ export default {
       return this.$store.state.information4;
     },
   },
-
   methods: {
     onRefresh() {
       this.$store.dispatch("getInfo", this.current);
@@ -217,7 +216,7 @@ export default {
   background-color: #f5e0e0;
   margin: 0 0.05rem 0.2rem;
   border-radius: 5px;
-  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 .container {
   margin: 0 auto;
@@ -265,7 +264,4 @@ export default {
   right: 0.1rem;
   bottom: 0.1rem;
 }
-/* .shadow{
-    box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, 1);
-} */
 </style>

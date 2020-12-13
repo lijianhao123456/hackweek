@@ -1,9 +1,7 @@
 <template>
   <div class="Body">
-    <div style="position: relative; z-index: 2">
-      <div class="arrow">
-        <van-icon name="arrow-left" @click="onClickLeft" size="30px" color="#FF9E9A" />
-      </div>
+    <div class="arrow">
+      <van-icon name="arrow-left" @click="onClickLeft" size="30px" color="#FF9E9A" />
     </div>
     <div class="box">
       <div class="title">
@@ -64,11 +62,6 @@ export default {
   top: -0.1rem;
   left: 0.2rem;
   z-index: 3;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 45px;
-  height: 60px;
 }
 .box {
   width: 100%;
@@ -76,13 +69,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: tomato; */
 }
 .title {
   margin-top: 60px;
   background-color: #ff9e9a;
-  width: 195px;
-  height: 43px;
+  width: 3.9rem;
+  height: 0.86rem;
   border-radius: 13px 13px 0 0;
   box-shadow: 2px 2px 5px 2px #dbdada;
   display: flex;
@@ -99,7 +91,6 @@ export default {
   width: 88%;
   margin: auto;
   padding: 0.5rem 0;
-  /* background-color: violet; */
   font-size: 16px;
   color: #8d8b8b;
   line-height: 25px;
@@ -113,11 +104,11 @@ export default {
   align-items: center;
 }
 .qq {
-  margin:0.5rem auto 0;
+  margin: 0.5rem auto 0;
   font-size: 16px;
   text-align: center;
 }
-.date{
+.date {
   text-align: right;
 }
 </style>

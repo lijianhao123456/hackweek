@@ -1,9 +1,9 @@
 <template>
   <div class="Body">
     <div style="position: relative; z-index: 2">
-      <div class="arrow">
+      <!-- <div class="arrow">
         <van-icon name="arrow-left" @click="onClickLeft" size="30px" color="#FF9E9A" />
-      </div>
+      </div> -->
       <dropdown />
     </div>
     <div class="user">
