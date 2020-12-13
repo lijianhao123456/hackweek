@@ -58,7 +58,7 @@ const router = new VueRouter({
       name: "followers",
       component: () => import("../views/followers.vue"),
       meta: { keepAlive: true, index: 5 }
-    }, 
+    },
     {
       path: "/about",
       name: "About",
@@ -99,7 +99,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.path === '/' || to.path === '/login' || to.path ==='/register') return next();
+  if (to.path === '/' || to.path === '/login' || to.path === '/register') return next();
   const tokenStr = window.sessionStorage.getItem('token')
   if (!tokenStr) return next("/login")
   next()

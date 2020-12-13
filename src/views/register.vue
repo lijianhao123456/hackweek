@@ -196,5 +196,8 @@ input {
 .check {
   font-size: 8px;
   margin: 2rem -0.4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
