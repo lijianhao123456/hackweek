@@ -23,23 +23,14 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-image
-                  round
-                  width="0.4rem"
-                  height="0.4rem"
-                  :src="value.avatar"
-                />
+                <van-image round width="0.4rem" height="0.4rem" :src="value.avatar" />
                 <span class="ownerName">
                   {{ value.owner }}
                 </span>
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon
-                  class="like"
-                  size="0.3rem"
-                  :name="good"
-                />
+                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -58,21 +49,12 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-image
-                  round
-                  width="0.4rem"
-                  height="0.4rem"
-                  :src="value.avatar"
-                />
+                <van-image round width="0.4rem" height="0.4rem" :src="value.avatar" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon
-                  class="like"
-                  size="0.3rem"
-                  :name="good"
-                />
+                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -91,21 +73,12 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-image
-                  round
-                  width="0.4rem"
-                  height="0.4rem"
-                  :src="value.avatar"
-                />
+                <van-image round width="0.4rem" height="0.4rem" :src="value.avatar" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon
-                  class="like"
-                  size="0.3rem"
-                  :name="good"
-                />
+                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -124,22 +97,13 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-image
-                  round
-                  width="0.4rem"
-                  height="0.4rem"
-                  :src="value.avatar"
-                />
+                <van-image round width="0.4rem" height="0.4rem" :src="value.avatar" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon
-                  class="like"
-                  size="0.3rem"
-                  :name="good"
-                />
-                <div>{{ value.likes}}</div>
+                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
+                <div>{{ value.likes }}</div>
               </div>
             </div>
           </div>
@@ -157,21 +121,12 @@
             </van-image>
             <div class="brief">
               <div class="owner">
-                <van-image
-                  round
-                  width="0.4rem"
-                  height="0.4rem"
-                  :src="value.avatar"
-                />
+                <van-image round width="0.4rem" height="0.4rem" :src="value.avatar" />
                 {{ value.owner }}
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon
-                  class="like"
-                  size="0.3rem"
-                  :name="good"
-                />
+                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -205,7 +160,7 @@ export default {
     return {
       isLoading: false,
       current: "0",
-      good:good
+      good: good,
     };
   },
   computed: {
@@ -245,6 +200,12 @@ export default {
     },
     goToDetail() {
       this.$router.push("detail");
+    },
+    like() {
+      Toast({
+        message: "不许点赞！",
+        icon: "smile",
+      });
     },
   },
 };

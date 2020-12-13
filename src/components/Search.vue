@@ -3,7 +3,7 @@
     v-model="value"
     shape="round"
     @focus="Search"
-    placeholder="请输入搜索关键词"
+    placeholder="请输入搜索关键词（暂时只能搜标题"
     background="#FF9E9A"
   >
   </van-search>

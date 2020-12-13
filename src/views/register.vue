@@ -3,12 +3,7 @@
     <van-icon name="arrow-left" @click="onClickLeft" size="30px" color="#FF9E9A" />
     <div class="img">
       <div>
-        <van-image
-          round
-          width="1.5rem"
-          height="1.5rem"
-          :src=url
-        />
+        <van-image round width="1.5rem" height="1.5rem" :src="url" />
       </div>
     </div>
     <div class="form">
@@ -36,6 +31,11 @@
         </div>
         <input v-model="registerForm.pswd2" maxlength="18" type="password" />
       </div>
+      <div class="check">
+        <van-checkbox v-model="checked" checked-color="#92A0FF"
+          >我同意十天极限存活挑战队获得最佳小组奖</van-checkbox
+        >
+      </div>
       <div class="button" @click="register">
         <span class="btn">注册</span>
       </div>
@@ -51,6 +51,9 @@ import { Icon } from "vant";
 import { Image as VanImage } from "vant";
 import { Toast } from "vant";
 import avatar from "@/assets/image/avatar.png";
+import { Checkbox } from "vant";
+
+Vue.use(Checkbox);
 Vue.use(Toast);
 Vue.use(VanImage);
 Vue.use(Icon);
@@ -74,41 +77,48 @@ export default {
       this.$router.push("login");
     },
     register: function () {
-      if (
-        this.registerForm.username === "" ||
-        this.registerForm.pswd1 === "" ||
-        this.registerForm.pswd2 === ""
-      ) {
-        Toast({
-          message: "账号或密码不能为空",
-          icon: "cross",
-        });
-      } else {
+      if (this.checked == true) {
         if (
-          this.registerForm.username.length >= 6 &&
-          this.registerForm.pswd1.length >= 8 &&
-          this.registerForm.pswd2.length >= 8
+          this.registerForm.username === "" ||
+          this.registerForm.pswd1 === "" ||
+          this.registerForm.pswd2 === ""
         ) {
-          if (this.registerForm.pswd1 === this.registerForm.pswd2) {
-            this.$store.dispatch("register", {
-              registerForm: {
-                username: this.registerForm.username,
-                password: this.registerForm.pswd1,
-              },
-              router: this.$router,
-            });
+          Toast({
+            message: "账号或密码不能为空",
+            icon: "cross",
+          });
+        } else {
+          if (
+            this.registerForm.username.length >= 6 &&
+            this.registerForm.pswd1.length >= 8 &&
+            this.registerForm.pswd2.length >= 8
+          ) {
+            if (this.registerForm.pswd1 === this.registerForm.pswd2) {
+              this.$store.dispatch("register", {
+                registerForm: {
+                  username: this.registerForm.username,
+                  password: this.registerForm.pswd1,
+                },
+                router: this.$router,
+              });
+            } else {
+              Toast({
+                message: "两次密码输入不一致",
+                icon: "cross",
+              });
+            }
           } else {
             Toast({
-              message: "两次密码输入不一致",
+              message: "筒子,账号不少于六位,密码不少于八位哦~!",
               icon: "cross",
             });
           }
-        } else {
-          Toast({
-            message: "筒子,账号不少于六位,密码不少于八位哦~!",
-            icon: "cross",
-          });
         }
+      } else {
+        Toast({
+          message: "不同意不许注册!",
+          icon: "cross",
+        });
       }
     },
   },
@@ -119,7 +129,8 @@ export default {
         pswd1: "",
         pswd2: "",
       },
-      url:avatar
+      url: avatar,
+      checked: false,
     };
   },
 };
@@ -168,7 +179,7 @@ input {
   background-color: #ffffff;
   border-radius: 0.3rem;
   box-shadow: 0 5px 10px 1px rgba(0, 0, 0, 0.15);
-  margin: 1.56rem auto;
+  margin: 0.5rem auto;
   font-size: 0.3rem;
   color: #ff9e9a;
   letter-spacing: 0.1rem;
@@ -181,5 +192,9 @@ input {
 .pswd-limit {
   position: absolute;
   right: 0px;
+}
+.check {
+  font-size: 8px;
+  margin: 2rem -0.4rem 0;
 }
 </style>

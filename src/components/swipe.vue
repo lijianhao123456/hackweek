@@ -35,7 +35,7 @@ export default {
   name: "swipe",
   data() {
     return {
-      images: [img1, img2, img3, img4, img5, img6],
+      images: [img6,img1, img3, img4, img5, img2],
     };
   },
   methods: {

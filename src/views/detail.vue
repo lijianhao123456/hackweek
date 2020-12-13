@@ -20,9 +20,9 @@
           fit="fill"
           width="0.5rem"
           height="0.5rem"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
+          :src="llq"
         />
-        <span class="ownerName"> 李健豪 </span>
+        <span class="ownerName"> 刘珞芊 </span>
       </div>
       <div class="likes">
         <div class="button" @click="sorry">
@@ -52,10 +52,10 @@
         @load="onLoad"
       >
         <van-cell
-          icon="location-o"
+          :icon="gfq"
           v-for="item in list"
           :key="item"
-          title="李健豪"
+          title="郭芳泉"
           value="好好看！"
         />
       </van-list>
@@ -101,6 +101,8 @@ import { Search } from "vant";
 import { Icon } from "vant";
 import { List } from "vant";
 import { Cell, CellGroup } from "vant";
+import gfq from "@/assets/image/gfq.jpg";
+import llq from "@/assets/image/llq.jpg";
 import img1 from "@/assets/image/detail/1.png";
 import img2 from "@/assets/image/detail/2.png";
 import img3 from "@/assets/image/detail/3.png";
@@ -171,6 +173,8 @@ export default {
   },
   data() {
     return {
+      gfq:gfq,
+      llq:llq,
       value: "",
       list: [],
       loading: false,

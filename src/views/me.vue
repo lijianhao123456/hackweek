@@ -14,11 +14,11 @@
           <van-image round width="1.2rem" height="1.2rem" :src=url />
           <!-- <input type="file" accept="image/*" class="van-uploader__input"> -->
         </van-uploader>
-        <h1 style="font-size: 20px;font-weight:bold">小山女</h1>
+        <h1 style="font-size: 20px;font-weight:bold">小家园</h1>
       </div>
       <div class="tabbox_1">
         <p>获赞0</p>
-        <p @click="goToFollower2">关注0</p>
+        <p @click="goToFollower2">关注9</p>
         <p @click="goToFollowers">粉丝9</p>
       </div>
     </div>

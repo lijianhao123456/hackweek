@@ -137,6 +137,7 @@ export default new Vuex.Store({
       let _this = this
       const res = await axios({
         method: 'put',
+        // url: `/user/${_this.state.id}`,
         url: `/user/editPwd/${_this.state.id}`,
         data: value.changeForm
       })

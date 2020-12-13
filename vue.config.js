@@ -30,7 +30,10 @@ module.exports = {
             'cell-text-color':'#FF9E9A',
             'cell-right-icon-color':'#FF9E9A',
             'search-content-background-color':'#FFE7E7',
-            'field-input-text-color':'#FF9E9A'
+            'field-input-text-color':'#FF9E9A',
+            'checkbox-label-margin':'5px',
+            'checkbox-label-color':'#92A0FF',
+            'cell-icon-size':'20px'
             // 或者可以通过 less 文件覆盖（文件路径为绝对路径）
             // hack: `true; @import "~@/styles/vant.less";`,
           },

@@ -12,7 +12,7 @@
           fit="fill"
           width="2rem"
           height="2rem"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
+          :src="avatar"
         />
       </div>
     </div>
@@ -120,7 +120,7 @@ import { Icon } from "vant";
 import { Uploader } from "vant";
 import { Overlay } from "vant";
 import { Toast } from "vant";
-
+import avatar from "@/assets/image/avatar.png";
 Vue.use(Toast);
 Vue.use(Overlay);
 Vue.use(Uploader);
@@ -172,6 +172,7 @@ export default {
       defaultDate: new Date(2002, 6, 2),
       currentDate: new Date(),
       message: "",
+      avatar:avatar
     };
   },
 };

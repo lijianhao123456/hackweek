@@ -16,7 +16,7 @@
     />
     <div @click="sorry">
       <van-cell
-        icon="chat-o"
+        :icon="bzg"
         title="来自陌生人的消息"
         is-link
         label="这个世界充满了对我的压迫 我浑身冰凉"
@@ -44,7 +44,7 @@ import { Cell, CellGroup } from "vant";
 import { Icon } from "vant";
 import { NoticeBar } from "vant";
 import { Toast } from "vant";
-
+import bzg from "@/assets/image/bzg.png";
 Vue.use(Toast);
 Vue.use(NoticeBar);
 Vue.use(Icon);
@@ -58,7 +58,7 @@ export default {
   },
   methods: {},
   data() {
-    return {};
+    return {bzg};
   },
   methods: {
     onClickLeft() {

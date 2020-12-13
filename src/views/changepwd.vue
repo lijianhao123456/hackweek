@@ -7,7 +7,7 @@
           round
           width="1.5rem"
           height="1.5rem"
-          src="https://img.yzcdn.cn/vant/cat.jpeg"
+          :src="avatar"
         />
       </div>
     </div>
@@ -50,6 +50,7 @@ import Vue from "vue";
 import { Icon } from "vant";
 import { Image as VanImage } from "vant";
 import { Toast } from "vant";
+import avatar from "@/assets/image/avatar.png";
 
 Vue.use(Toast);
 Vue.use(VanImage);
@@ -57,11 +58,8 @@ Vue.use(Icon);
 export default {
   name: "Home",
   methods: {
-    goToRegister: function () {
-      this.$router.push("/me");
-    },
     onClickLeft: function () {
-      this.$router.push("login");
+      this.$router.push("me");
     },
     changePwd: function () {
       // if (this.changeForm.newpwd1 === this.changeForm.newpwd2) {
@@ -92,8 +90,9 @@ export default {
           if (this.changeForm.newpwd1 === this.changeForm.newpwd2) {
             this.$store.dispatch("changePwd", {
               changeForm: {
-                oldPwd: this.changeForm.oldPwd,
-                password: this.changeForm.newpwd1,
+                old_pwd: this.changeForm.oldPwd,
+                new_pwd: this.changeForm.newpwd1,
+                username:this.$store.state.username
               },
               router: this.$router,
             });
@@ -119,6 +118,7 @@ export default {
         newpwd1: "",
         newpwd2: "",
       },
+      avatar:avatar
     };
   },
 };

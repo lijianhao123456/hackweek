@@ -5,7 +5,7 @@
       shape="round"
       @search="Search"
       show-action
-      placeholder="请输入搜索关键词"
+      placeholder="请输入搜索关键词(只能搜标题"
       maxlength="20"
       background="#FF9E9B"
     >
@@ -18,19 +18,19 @@
     </van-search>
     <div class="container">
       <div v-for="value in info" class="card" @click="goToDetail">
-        <van-image class="image" radius="5" src="https://img.yzcdn.cn/vant/cat.jpeg">
+        <van-image class="image" radius="5" :src="value.image_url">
           <template v-slot:loading>
             <van-loading type="spinner" size="20" />
           </template>
         </van-image>
         <div class="brief">
           <div class="owner">
-            <van-icon class="like" name="like-o" />
+            <van-image round width="0.4rem" height="0.4rem" :src="value.avatar" />
             {{ value.owner }}
           </div>
-          <div class="info">{{ value.tittle}}</div>
+          <div class="info">{{ value.tittle }}</div>
           <div class="likes">
-            <van-icon class="like" name="like-o" />
+            <van-icon @click="like" class="like" size="0.3rem" :name="good" />
             <div>{{ value.likes }}</div>
           </div>
         </div>
@@ -56,6 +56,7 @@ import { Image as VanImage } from "vant";
 import { Loading } from "vant";
 import { Divider } from "vant";
 import search from "@/assets/image/icon/search.png";
+import good from "@/assets/image/icon/good.png";
 Vue.use(Divider);
 Vue.use(Loading);
 Vue.use(VanImage);
@@ -74,7 +75,8 @@ export default {
       value: "",
       seen: true,
       seen1: false,
-      search:search
+      search: search,
+      good: good,
     };
   },
   methods: {
@@ -86,7 +88,13 @@ export default {
     },
     onClickLeft() {
       this.$router.push("home");
-      this.$store.commit("clearSearch")
+      this.$store.commit("clearSearch");
+    },
+    like() {
+      Toast({
+        message: "不许点赞！",
+        icon: "smile",
+      });
     },
   },
   computed: {
@@ -114,6 +122,7 @@ export default {
   background-color: #f5e0e0;
   margin: 0 0.05rem 0.2rem;
   border-radius: 5px;
+  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.15);
 }
 .container {
   margin: 0.2rem auto;

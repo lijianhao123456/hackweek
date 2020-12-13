@@ -52,10 +52,10 @@ export default {
   data() {
     return {
       info: [
-        { owner: "666", info: "大家都好强", likes: "999" },
-        { owner: "555", info: "大家都好强", likes: "888" },
-        { owner: "4", info: "大家都好强", likes: "777" },
-        { owner: "1", info: "大家都好强", likes: "666" },
+        { owner: "李健豪", info: "好菜", likes: "555" },
+        { owner: "刘珞芊", info: "好强", likes: "666" },
+        { owner: "郭芳泉", info: "好强", likes: "666" },
+        { owner: "龙伟", info: "好强", likes: "666" },
       ],
     };
   },

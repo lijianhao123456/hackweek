@@ -3,7 +3,7 @@
     <van-nav-bar left-arrow title="关注" @click-left="onClickLeft" />
     <div>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="ljh"
         title="李健豪"
         is-link
         label="李健豪好菜"
@@ -15,7 +15,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="llq"
         title="刘珞芊"
         is-link
         label="刘珞芊好强"
@@ -27,7 +27,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="gfq"
         title="郭芳泉"
         is-link
         label="郭芳泉好强"
@@ -39,7 +39,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="lw"
         title="龙伟"
         is-link
         label="龙伟好强"
@@ -51,7 +51,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="zcj"
         title="赵晨婧"
         is-link
         label="赵晨婧好强"
@@ -63,7 +63,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="hyq"
         title="胡昱琦"
         is-link
         label="胡昱琦好强"
@@ -75,7 +75,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="gjy"
         title="郭晶瑛"
         is-link
         label="郭晶瑛好强"
@@ -87,7 +87,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="xsf"
         title="徐思璠"
         is-link
         label="徐思璠好强"
@@ -99,7 +99,7 @@
         </template>
       </van-cell>
       <van-cell
-        icon="https://b.yzcdn.cn/vant/icon-demo-1126.png"
+        :icon="zh"
         title="张晗"
         is-link
         label="张晗好强"
@@ -119,13 +119,34 @@ import Vue from "vue";
 import { Cell, CellGroup } from "vant";
 import { Toast } from "vant";
 import { NavBar } from 'vant';
-
+import gfq from "@/assets/image/gfq.jpg";
+import llq from "@/assets/image/llq.jpg";
+import lw from "@/assets/image/lw.jpg";
+import ljh from "@/assets/image/ljh.jpg";
+import xsf from "@/assets/image/xsf.jpg";
+import gjy from "@/assets/image/gjy.jpg";
+import zh from "@/assets/image/zh.jpg";
+import hyq from "@/assets/image/hyq.jpg";
+import zcj from "@/assets/image/zcj.jpg";
 Vue.use(NavBar);
 Vue.use(Toast);
 Vue.use(Cell);
 Vue.use(CellGroup);
 export default {
   components: {},
+  data(){
+    return{
+      ljh,
+      llq,
+      gfq,
+      lw,
+      zcj,
+      hyq,
+      gjy,
+      xsf,
+      zh,
+    }
+  },
   methods: {
     sorry() {
       Toast({
