@@ -10,7 +10,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -22,7 +22,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -34,7 +34,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -46,7 +46,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -58,7 +58,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -70,7 +70,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -82,7 +82,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -94,7 +94,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
@@ -106,7 +106,7 @@
       >
         <template #right-icon>
           <div class="button">
-            <span class="btn" @click="sorry">取关</span>
+            <span class="btn" @click="sorry">已关注</span>
           </div>
         </template>
       </van-cell>
