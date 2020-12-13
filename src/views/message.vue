@@ -6,7 +6,6 @@
         <i class="van-icon van-icon-arrow-left van-nav-bar__arrow"><!----></i>
       <!-- </div>
     </div> -->
-    <van-notice-bar scrollable text="肝不动了…" />
     <van-cell
       icon="friends-o"
       @click="goToFollowers"
@@ -25,11 +24,11 @@
         icon="chat-o"
         title="来自陌生人的消息"
         is-link
-        label="推进度最快的方式是砍需求"
+        label="这衣服质量怎么样"
       />
-      <van-cell icon="chat-o" title="来自陌生人的消息" is-link label="晚安，打工人" />
-      <van-cell icon="chat-o" title="来自陌生人的消息" is-link label="早安，打工人" />
-      <van-cell icon="chat-o" title="来自陌生人的消息" is-link label="你好，组件库人" />
+      <van-cell icon="chat-o" title="来自陌生人的消息" is-link label="实物和图片相符吗" />
+      <van-cell icon="chat-o" title="来自陌生人的消息" is-link label="适合秋冬吗" />
+      <van-cell icon="chat-o" title="来自陌生人的消息" is-link label="男生能穿吗" />
     </div>
     <navigation />
   </div>
