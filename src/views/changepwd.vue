@@ -62,23 +62,13 @@ export default {
       this.$router.push("me");
     },
     changePwd: function () {
-      // if (this.changeForm.newpwd1 === this.changeForm.newpwd2) {
-      //   this.$store.dispatch("changePwd", {
-      //     changeForm: {
-      //       "old_pwd": this.changeForm.oldPwd,
-      //       "new_pwd": this.changeForm.newpwd1,
-      //       username:this.$store.state.username
-      //     },
-      //     router: this.$router,
-      //   });
-      // }
       if (
         this.changeForm.oldPwd === "" ||
         this.changeForm.newpwd1 === "" ||
         this.changeForm.newpwd2 === ""
       ) {
         Toast({
-          message: "账号或密码不能为空",
+          message: "密码不能为空",
           icon: "cross",
         });
       } else {

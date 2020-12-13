@@ -23,10 +23,10 @@
           </div>
           <div class="info">{{ value.info }}</div>
           <div class="likes">
-            <van-icon
+            <van-icon @click.stop="like"
               class="like"
               size="0.3rem"
-              name="http://hellosun.net.cn/hackweek/good.svg"
+              :name="good"
             />
             <div>{{ value.likes }}</div>
           </div>
@@ -41,7 +41,15 @@
 import Head from "../components/Head.vue";
 import Search from "../components/Search.vue";
 import Navigation from "../components/navigation";
+import good from "@/assets/image/icon/good.png";
+import Vue from 'vue';
+import { Image as VanImage } from 'vant';
+import { Loading } from 'vant';
+import { Toast } from 'vant';
 
+Vue.use(Toast);
+Vue.use(Loading);
+Vue.use(VanImage);
 export default {
   name: "Home",
   components: {
@@ -51,13 +59,30 @@ export default {
   },
   data() {
     return {
+      good,
       info: [
         { owner: "李健豪", info: "好菜", likes: "555" },
         { owner: "刘珞芊", info: "好强", likes: "666" },
         { owner: "郭芳泉", info: "好强", likes: "666" },
         { owner: "龙伟", info: "好强", likes: "666" },
+        { owner: "赵晨婧", info: "好强", likes: "666" },
+        { owner: "徐思璠", info: "好强", likes: "666" },
+        { owner: "胡昱琦", info: "好强", likes: "666" },
+        { owner: "郭晶瑛", info: "好强", likes: "666" },
+        { owner: "张晗", info: "好强", likes: "666" },
       ],
     };
+  },
+  methods: {
+    goToDetail() {
+      this.$router.push("detail");
+    },
+    like() {
+      Toast({
+        message: "不许点赞！",
+        icon: "smile",
+      });
+    },
   },
 };
 </script>

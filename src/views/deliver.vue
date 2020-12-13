@@ -76,6 +76,13 @@
                 </div>
               </div>
             </van-overlay>
+            <van-overlay :show="showDeliver" @click="showDeliver = false">
+              <div class="wrapper_deliver">
+                <div class="block_deliver">
+                  <span class="change"> 发布失败！ </span>
+                </div>
+              </div>
+            </van-overlay>
           </div>
         </div>
       </div>
@@ -108,11 +115,12 @@ export default {
       cate: "",
       qianduan: qianduan,
       show: false,
+      showDeliver: false,
     };
   },
   methods: {
     onClickLeft() {
-      if (this.fileList.length = 0 || this.title != "" || this.info != "") {
+      if ((this.fileList.length = 0 || this.title != "" || this.info != "")) {
         this.show = true;
       } else {
         this.$router.push("home");
@@ -158,14 +166,17 @@ export default {
       }
     },
     onSubmit() {
-      this.show = true;
-      // this.$store.dispatch("deliver", {
-      //   file: this.file,
-      //   cate: this.cate,
-      //   title: this.title,
-      //   info: this.info,
-      //   router: this.$router,
-      // });
+      this.showDeliver = true;
+      this.$store.dispatch("deliver", {
+        deliver: {
+          owner: this.$store.state.username,
+          cate: this.cate,
+          tittle: this.tittle,
+          image_url: "http://hellosun.net.cn/hackweek/neko.png",
+          avatar: "http://hellosun.net.cn/hackweek/neko.png",
+        },
+        router: this.$router,
+      });
     },
     confirm() {
       this.$router.push("/home");
@@ -361,15 +372,37 @@ input {
   justify-content: space-around;
   align-items: center;
 }
-button{
+button {
   border: none;
 }
-
 .opt {
   color: #ffffff;
   width: 75px;
   height: 40px;
   border-radius: 15px;
   font-size: 15px;
+}
+.wrapper_deliver {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 100%;
+}
+.block_deliver {
+  position: absolute;
+  top: 29%;
+  width: 2.9rem;
+  height: 0.8rem;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  margin: 0.3rem auto;
+  font-size: 0.3rem;
+  color: #ff9e9a;
+  letter-spacing: 0.05rem;
+  text-align: center;
+  line-height: 0.8rem;
+}
+.change {
+  margin-left: 0.1rem;
 }
 </style>

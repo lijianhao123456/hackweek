@@ -30,7 +30,7 @@
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
+                <van-icon @click.stop="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -54,7 +54,7 @@
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
+                <van-icon @click.stop="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -78,7 +78,7 @@
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
+                <van-icon @click.stop="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -102,7 +102,7 @@
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
+                <van-icon @click.stop="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>
@@ -126,7 +126,7 @@
               </div>
               <div class="info">{{ value.tittle }}</div>
               <div class="likes">
-                <van-icon @click="like" class="like" size="0.3rem" :name="good" />
+                <van-icon @click.stop="like" class="like" size="0.3rem" :name="good" />
                 <div>{{ value.likes }}</div>
               </div>
             </div>

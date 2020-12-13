@@ -134,11 +134,10 @@ export default new Vuex.Store({
       context.commit("getSearch", res.data.data)
     },
     async changePwd(context, value) {
-      let _this = this
       const res = await axios({
         method: 'put',
         // url: `/user/${_this.state.id}`,
-        url: `/user/editPwd/${_this.state.id}`,
+        url: `/user/editPwd/${this.state.id}`,
         data: value.changeForm
       })
       if (res.data.status == 200) {
@@ -149,6 +148,11 @@ export default new Vuex.Store({
       }
     },
     async deliver(context, value) {
+      const res = await axios({
+        method: "post",
+        url: "1",
+        data: value.deliver
+      })
     }
   },
   modules: {
